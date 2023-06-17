@@ -1,25 +1,35 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
 const ApiFetch = () => {
-    const [worker, setWorker] = useState([]);
+  const [workers, setWorkers] = useState([]);
 
-    useEffect(() => {
-        fetch("http://localhost:8080/",{method: "GET"})
-            .then((res) => res.json())
-            .then((date) => {
-                setWorker(date);
-            });
-
-
-    })
+  useEffect(() => {
+    fetch("http://localhost:8080/", { method: "GET" })
+      .then((res) => res.json())
+      .then((data) => {
+        setWorkers(data);
+      });
+  });
   return (
     <div>
-        <ul>
-            <li>{worker.id}</li>
-            <li>{worker.first_name}</li>
-        </ul>
+      <th>id</th>
+      <th>name</th>
+      <th>dept/team</th>
+      {workers.map((worker) => (
+        <tr>
+          <>
+            <td>{worker.id}</td>
+            <td>
+              {worker.first_name} {worker.last_name}
+            </td>
+            <td>
+              {worker.dept} / {worker.team}
+            </td>
+          </>
+        </tr>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default ApiFetch
+export default ApiFetch;

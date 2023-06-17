@@ -1,13 +1,11 @@
-import './App.css';
-import ApiFetch from './components/ApiFetch';
+import "./App.css";
+import ApiFetch from "./components/ApiFetch";
 
 function App() {
   return (
     <div className="App">
-
-        <ApiFetch />
-
-          Learn React
+      <ApiFetch />
+      Learn React
     </div>
   );
 }
