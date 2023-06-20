@@ -5,11 +5,13 @@ const ApiFetch = () => {
 
   useEffect(() => {
     fetch("http://localhost:8080/", { method: "GET" })
-      .then((res) => res.json())
-      .then((data) => {
-        setWorkers(data);
-      });
-  });
+      .then(res => res.json())
+      .then(data => {
+        setWorkers(data)
+    })
+    
+},[]);
+
   return (
     <div>
       <th>id</th>
