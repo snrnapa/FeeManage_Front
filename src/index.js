@@ -4,12 +4,28 @@ import "./index.css";
 import App from "./App";
 import Test from "./Test";
 import Inputer from "./Inputer";
+import Sidebar from "./components/Sidebar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
-    <Test />
-    <Inputer />
+    <div>
+        <Sidebar />
+    </div>
+    <div>
+       <App />
+    </div>
+
+    <div>
+        <Test />
+    </div>
+
+    <div>
+       <Inputer />
+    </div>
+
+    
+
   </React.StrictMode>
 );
+  
