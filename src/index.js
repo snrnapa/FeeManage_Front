@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
-import Test from "./Test";
-import Inputer from "./Inputer";
-import Sidebar from "./components/Sidebar";
+
+import Orders from "./components/Orders";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,23 +11,10 @@ root.render(
 
     <div>
 
-      <Sidebar />
+      <Orders />
 
     </div>
 
-
-
-    <hr/>
-
-
-    <div>
-      <App />
-    </div>
-
-
-    <div>
-      <Test />
-    </div>
 
   </React.StrictMode>
 );
