@@ -10,22 +10,14 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <div>
-        <Sidebar />
+      <Sidebar />
     </div>
     <div>
-       <App />
-    </div>
-
-    <div>
-        <Test />
+      <App />
     </div>
 
     <div>
-       <Inputer />
+      <Test />
     </div>
-
-    
-
   </React.StrictMode>
 );
-  
