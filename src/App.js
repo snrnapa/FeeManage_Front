@@ -8,12 +8,7 @@ function App() {
   return (
     // <div className="App">
     <div>
-      <PersonIcon />
-      <ApiFetch />
-
       <hr />
-      <TrainIcon />
-      <Fee />
     </div>
   );
 }
