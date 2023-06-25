@@ -11,12 +11,8 @@ function App() {
     // <div className="App">
     <div>
 
-      <PersonIcon />
-      <ApiFetch />
 
       <hr/>
-      <TrainIcon />
-      <Fee />
 
 
       
