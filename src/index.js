@@ -2,19 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import Orders from "./components/Orders";
+import Dashboard from "./Dashbord";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-
-
     <div>
-
-      <Orders />
-
+      <Dashboard />
     </div>
-
-
   </React.StrictMode>
 );
