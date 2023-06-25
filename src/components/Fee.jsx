@@ -1,37 +1,60 @@
 import React, { useState, useEffect } from "react";
+import Link from '@mui/material/Link';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Title from './Title';
 
 const Fee = () => {
-  const [fees, setFee] = useState([]);
+  const [fees, setFees] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:8080/fee?id=1", { method: "GET" })
       .then(res => res.json())
       .then(data => {
-        setFee(data)
+        setFees(data)
     })
     
 },[]);
 
   return (
-    <div>
-      <th>id</th>
-      <th>round_trip</th>
-      <th>total_fee</th>
-      {fees.map((fee) => (
-        <tr>
-          <>
-            <td>{fee.id}</td>
-            <td>
-              {fee.round_trip}
-            </td>
-            {fee.total_fee}
-            <td>
+    <>
+    <Title>Fee</Title>
+    <Table size="small" >
+      <TableHead>
+        <TableRow>
+          <TableCell>UserID</TableCell>
+          <TableCell>Fee_seq</TableCell>
+          <TableCell>Round_trip</TableCell>
+          <TableCell>total_fee</TableCell>
+          <TableCell>use_date</TableCell>
 
-            </td>
-          </>
-        </tr>
-      ))}
-    </div>
+
+
+
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {fees.map((fee) => (
+          <TableRow key={fee.id}>
+            <TableCell>{fee.id}</TableCell>
+            <TableCell>{fee.fee_seq}</TableCell>
+            <TableCell>{fee.round_trip}</TableCell>
+            <TableCell>{fee.total_fee}</TableCell>
+            <TableCell>{fee.use_date}</TableCell>
+
+
+
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+    {/* <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
+      See more orders
+    </Link> */}
+  </>
   );
 };
 
