@@ -17,6 +17,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { mainListItems, secondaryListItems } from "./components/Hummenu";
 import Orders from "./components/Orders";
+import Fee from "./components/Fee";
 
 const drawerWidth = 240;
 

@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from './Title';
 import { useState , useEffect } from 'react';
+import Fee from './Fee';
 
 function preventDefault(event) {
   event.preventDefault();
@@ -20,10 +21,17 @@ export default function Orders() {
         fetch("http://localhost:8080/", { method: "GET" })
           .then(res => res.json())
           .then(data => {
-            setWorkers(data)
-        })
+            setWorkers(data);
 
-    },[]);
+          })
+        },[]);
+        
+        // console.log(workers);
+        
+        
+        
+            let result = workers.find((worker) => worker.id === 5);
+            console.log(result);
 
 
   return (
@@ -53,6 +61,8 @@ export default function Orders() {
       <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
         See more orders
       </Link>
+
+
     </>
   );
 }

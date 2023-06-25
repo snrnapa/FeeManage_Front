@@ -9,9 +9,19 @@ import Title from './Title';
 
 const Fee = () => {
   const [fees, setFees] = useState([]);
+  
+  // const targetid = user.target.id;
+  // console.log(targetid);
+  // const GetUrl = 'http://localhost:8080/fee?id=' + user.target.id;
+  // let result = users.target.find((user) => user.id === 5);
+  // console.log(result);
+  
 
   useEffect(() => {
     fetch("http://localhost:8080/fee?id=1", { method: "GET" })
+    // fetch(GetUrl, { method: "GET" })
+
+
       .then(res => res.json())
       .then(data => {
         setFees(data)
