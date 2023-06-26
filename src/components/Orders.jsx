@@ -15,9 +15,80 @@ function preventDefault(event) {
 }
 
 export default function Orders() {
-    const [workers , setWorkers] = useState([]);
-    const [toggle , setToggle] = useState(false);
-    const [targetid , setTargetid] =useState();
+  const [workers , setWorkers] = useState([]);
+  const [toggle , setToggle] = useState(false);
+  const [targetid , setTargetid] =useState();
+  // const [targetmonth , setTargetmonth] = useState([]);
+
+    const months = ([]);
+    const d =  new Date();
+    d.setMonth(d.getMonth()-2);
+
+
+    for(let i = 1; i<12; i++){
+  
+      d.setMonth(d.getMonth()+1);
+      console.log(d);
+      months.push(d);
+
+    }
+
+
+
+  
+  
+  
+  // useEffect(() => {
+  //   const months = ([]);
+  //   let d =  new Date();
+  //   d.setMonth(d.getMonth()-2);
+
+
+  //   for(let i = 1; i<12; i++){
+  
+  //     d.setMonth(d.getMonth()+1);
+  //     console.log(d);
+  //     months.push(d);
+
+  //   }
+
+  // },[]);
+
+
+
+
+
+  function logdate(){
+    console.log(months);
+  }
+  
+  
+  // function logdate(){
+  //     let d =  new Date();
+  //     for(let i = -2; i<13; i++){
+
+  //       d.setMonth(d.getMonth()+i);
+  //       console.log(d);
+
+  //       const addtargetmonth = () => {
+  //         setTargetmonth([...targetmonth,d])
+  //       }
+  //     }
+
+  //     // let inputstringdate = "2024/07/01";
+  //     // let inputdate = new Date(inputstringdate);
+  //     // let syoudate = new Date(2022/1/1);
+  //     // console.log(d);
+
+  //     // if(inputdate > d){
+  //     //   console.log("trueですよ")
+  //     // }
+
+  //     // console.log(
+  //     //   y '/');
+  //   }
+
+
 
 
     function TargetChange(props){
@@ -87,6 +158,16 @@ export default function Orders() {
       <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
         See more orders
       </Link>
+
+    {/* <select>
+      {targetmonth.map((targetmonth) => {
+        return <option>{targetmonth.getFullyear()}</option>;
+      })}
+      
+    </select> */}
+
+    <Button onClick={logdate}>日付ログ</Button>
+
 
     {toggle
     ? <Fee targetworker={targetid}/>
