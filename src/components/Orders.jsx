@@ -37,22 +37,7 @@ export default function Orders() {
 
   
   
-  
-  // useEffect(() => {
-  //   const months = ([]);
-  //   let d =  new Date();
-  //   d.setMonth(d.getMonth()-2);
 
-
-  //   for(let i = 1; i<12; i++){
-  
-  //     d.setMonth(d.getMonth()+1);
-  //     console.log(d);
-  //     months.push(d);
-
-  //   }
-
-  // },[]);
 
 
 
@@ -159,12 +144,16 @@ export default function Orders() {
         See more orders
       </Link>
 
+
     {/* <select>
       {targetmonth.map((targetmonth) => {
         return <option>{targetmonth.getFullyear()}</option>;
       })}
       
     </select> */}
+
+
+
 
     <Button onClick={logdate}>日付ログ</Button>
 
