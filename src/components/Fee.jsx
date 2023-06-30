@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import Link from '@mui/material/Link';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -14,6 +14,9 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 const Fee = (props) => {
   const [fees, setFees] = useState([]);
+  const refflg = 0;
+  const filtermonths = ([]);
+
 
 
   const [alignment, setAlignment] = React.useState('web');
@@ -27,37 +30,28 @@ const Fee = (props) => {
 
   const GetUrl = 'http://localhost:8080/fee?id=' + props.targetworker;
 
+
+  useLayoutEffect(() => {
+    // fetch("http://localhost:8080/fee?id=1", { method: "GET" })
+    setFees([]);
+    fetch(GetUrl, { method: "GET" })
+      .then(res => res.json())
+      .then(data => {
+        setFees(data)
+    })
+
+
+
+    
+    
+},[props.targetworker, refflg]);
+
   
-  
-
-  const filtermonths = ([]);
-  
-
-  useEffect(() => {
-    let d =  new Date();
-    d.setMonth(d.getMonth()-2);
-
-
-    for(let i = 1; i<12; i++){
-  
-      d.setMonth(d.getMonth()+1);
-      console.log(d);
-      filtermonths.push(d);
-
-    }
-
-   },[]);
-
-   function logdate(){
-    console.log(filtermonths);
-   }
 
 
 
-
-
-
-  function FilterLastMonth(){
+  function FilterNowMonth(){
+    refflg = refflg + 1;
     const startday = new Date();
     const endday = new Date();
 
@@ -66,31 +60,38 @@ const Fee = (props) => {
     endday.setMonth(endday.getMonth() + 1);
     endday.setDate(0);
 
+    const Start = fees.filter((fee) =>  startday.toISOString().split('T')[0] < fee.use_date);
+    const filterdfees = Start.filter((fee) =>  endday.toISOString().split('T')[0] > fee.use_date);
+
+    setFees(filterdfees);
+  }
+
+
+  function FilterLastMonth(){
+    refflg = refflg + 1;
+
+
+
+    const startday = new Date();
+    const endday = new Date();
+
+    
+    startday.setMonth(startday.getMonth() - 1);
+    startday.setDate(1);
+    endday.setDate(0);
+
 
 
     const Start = fees.filter((fee) =>  startday.toISOString().split('T')[0] < fee.use_date);
     const filterdfees = Start.filter((fee) =>  endday.toISOString().split('T')[0] > fee.use_date);
-
-
-    // startday.toISOString().split('T')[0] < fee.use_date < endday.toISOString().split('T')[0]);
-
-
 
     setFees(filterdfees);
   }
 
   
 
-  useEffect(() => {
-    // fetch("http://localhost:8080/fee?id=1", { method: "GET" })
-    setFees([]);
-    fetch(GetUrl, { method: "GET" })
-      .then(res => res.json())
-      .then(data => {
-        setFees(data)
-    })
-    
-},[props.targetworker]);
+
+
 
   return (
     <>
@@ -106,8 +107,8 @@ const Fee = (props) => {
   onChange={handleChange}
   aria-label="Platform"
 >
-  <ToggleButton　onClick={FilterLastMonth} value="web">先月</ToggleButton>
-  <ToggleButton value="android">今月</ToggleButton>
+  <ToggleButton onClick={FilterLastMonth} value="android">先月</ToggleButton>
+  <ToggleButton onClick={FilterNowMonth} value="web">今月</ToggleButton>
   <ToggleButton value="ios">来月</ToggleButton>
 </ToggleButtonGroup>
 
@@ -126,7 +127,9 @@ const Fee = (props) => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {fees.map((fee) => (
+        {/* {fees.map((fee) => ( */}
+       {fees.map((fee) => (
+
           <TableRow key={fee.id}>
             <TableCell>{fee.id}</TableCell>
             <TableCell>{fee.fee_seq}</TableCell>
