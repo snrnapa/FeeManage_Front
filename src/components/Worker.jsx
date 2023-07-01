@@ -10,6 +10,7 @@ import { useState , useEffect, useRef} from 'react';
 import Filter from './Filter'
 import Fee from './Fee';
 import { Button, ButtonBase, Input } from '@mui/material';
+import InputWorker from './InputWorker';
 
 function preventDefault(event) {
   event.preventDefault();
@@ -32,9 +33,6 @@ export default function Worker() {
     if (filter === 'HHB') return worker.dept == 'HHB';
   })
 
-  function testlog(){
-    console.log(filter);
-  }
 
   // const [targetid , setTargetid] =useState();
 
@@ -67,6 +65,8 @@ export default function Worker() {
 
 
       <Title>User List</Title>
+
+      <InputWorker/>
 
 
       <Filter
@@ -104,10 +104,6 @@ export default function Worker() {
         </TableBody>
       </Table>
 
-
-<Button onClick={testlog}>
-  testButton
-</Button>
 
 
 {/* 
