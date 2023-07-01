@@ -1,5 +1,7 @@
 import React from 'react'
 import classNames from 'classnames';
+import { Button, ButtonGroup } from '@mui/material';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 export const Filter = (props) => {
 
@@ -14,27 +16,39 @@ export const Filter = (props) => {
   return (
     <>
 
-    Filter機能
+        <FilterAltIcon fontSize="large"/>
 
-    <a
-        href="#"
-        onClick={handleClick.bind(null, 'ALL')}
-        className={classNames({ 'is-active': value === 'ALL' })}
-      >All</a>
 
-      <a
-        href="#"
-        onClick={handleClick.bind(null, 'PPU')}
-        className={classNames({ 'is-active': value === 'PPU' })}
-      >PPU</a>
+        <ButtonGroup>
 
-      <a
-        href="#"
-        onClick={handleClick.bind(null, 'HHB')}
-        className={classNames({ 'is-active': value === 'HHB' })}
-      >Done</a>
-        
-        
+            <Button
+                    href="#"
+                    onClick={handleClick.bind(null, 'ALL')}
+            
+            >
+                ALL
+            </Button>
+
+            <Button
+                    href="#"
+                    onClick={handleClick.bind(null, 'PPU')}
+                    >
+                PPU
+            </Button>
+
+            <Button
+                    href="#"
+                    onClick={handleClick.bind(null, 'HHB')}
+                    >
+                HHB
+            </Button>
+
+
+
+        </ButtonGroup>
+
+        <hr/>
+
         
         
     </>
