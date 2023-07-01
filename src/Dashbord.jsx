@@ -9,7 +9,6 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -17,7 +16,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { mainListItems, secondaryListItems } from "./components/Hummenu";
 import Worker from "./components/Worker";
-import Fee from "./components/Fee";
+import { useState } from "react";
+import App from "./App";
 
 const drawerWidth = 240;
 
@@ -66,6 +66,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Dashboard() {
+
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -141,7 +142,14 @@ export default function Dashboard() {
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-                <Worker />
+
+                <App />
+
+
+
+
+
+
               </Paper>
             </Grid>
           </Grid>

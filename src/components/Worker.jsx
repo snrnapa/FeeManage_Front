@@ -11,17 +11,18 @@ import Filter from './Filter'
 import Fee from './Fee';
 import { Button, ButtonBase, Input } from '@mui/material';
 import InputWorker from './InputWorker';
+import Dashboard from '../Dashbord';
 
 function preventDefault(event) {
   event.preventDefault();
 }
 
-export default function Worker() {
+  const Worker = (props) => {
   // ランダムなキーを取得
   const getKey = () => Math.random().toString(32).substring(2);
 
   const [workers , setWorkers] = useState([]);
-  // const [toggle , setToggle] = useState(false);
+  // const [targetWorker , setTargetWorker] = props;
   const [filter , setFilter] = useState('ALL');
   const [refflg , setRefflg] = useState(0);
 
@@ -33,6 +34,11 @@ export default function Worker() {
     if (filter === 'PPU') return worker.dept == 'PPU';
     if (filter === 'HHB') return worker.dept == 'HHB';
   })
+
+  const ChangeTargetWorker = (worker) => {
+    const oneworker = worker;
+    props.HandleTargetWorker(oneworker);
+  }
 
 
   // const [targetid , setTargetid] =useState();
@@ -58,8 +64,6 @@ export default function Worker() {
           })
         },[refflg]);
         
-
-
   return (
     <>
 
@@ -95,7 +99,7 @@ export default function Worker() {
               <TableCell>{worker.first_name} {worker.last_name}</TableCell>
               <TableCell>{worker.dept} / {worker.team}</TableCell>
               <TableCell> 
-                 {/* <Button onClick={() => TargetChange(worker)} >Detail</Button>  */}
+                 <Button onClick={() => ChangeTargetWorker(worker.id)} >Detail</Button> 
                 
                 </TableCell>
 
@@ -107,16 +111,9 @@ export default function Worker() {
 
 
 
-{/* 
-    <Button onClick={logdate}>日付ログ</Button>
-
-
-    {toggle
-    ? <Fee targetworker={targetid}/>
-    : null}
-     */}
-
 
     </>
   );
 }
+
+export default Worker;

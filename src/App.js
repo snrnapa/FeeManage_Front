@@ -1,17 +1,38 @@
+import { useState } from "react";
 import "./App.css";
-import ApiFetch from "./components/ApiFetch";
 import Fee from "./components/Fee";
-import PersonIcon from "@mui/icons-material/Person";
-import TrainIcon from "@mui/icons-material/Train";
+import Worker from "./components/Worker";
+import { Button } from "@mui/material";
 
-function App() {
+const App = () => {
+
+  const [targetWorker , setTargetWorker] = useState();
+  const HandleTargetWorker = (oneworker) => {
+    setTargetWorker(oneworker)
+  };
+
+  function testfunction(){
+    console.log(targetWorker);
+  }
+
   return (
-    // <div className="App">
-    <div>
+    <>
+
+      <Button onClick={testfunction}>ぼたんやで</Button>
+
+
+      <Worker HandleTargetWorker={HandleTargetWorker}/>
 
       
       <hr />
-    </div>
+
+
+      {  targetWorker > 0 
+      ? <Fee targetWorker={targetWorker}/>
+      : null
+    }
+
+    </>
   );
 }
 

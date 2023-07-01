@@ -28,7 +28,7 @@ const Fee = (props) => {
   
   
 
-  const GetUrl = 'http://localhost:8080/fee?id=' + props.targetworker;
+  const GetUrl = 'http://localhost:8080/fee?id=' + props.targetWorker;
 
 
   useLayoutEffect(() => {
@@ -50,43 +50,43 @@ const Fee = (props) => {
 
 
 
-  function FilterNowMonth(){
-    refflg = refflg + 1;
-    const startday = new Date();
-    const endday = new Date();
+  // function FilterNowMonth(){
+  //   refflg = refflg + 1;
+  //   const startday = new Date();
+  //   const endday = new Date();
 
-    startday.setDate(1);
+  //   startday.setDate(1);
 
-    endday.setMonth(endday.getMonth() + 1);
-    endday.setDate(0);
+  //   endday.setMonth(endday.getMonth() + 1);
+  //   endday.setDate(0);
 
-    const Start = fees.filter((fee) =>  startday.toISOString().split('T')[0] < fee.use_date);
-    const filterdfees = Start.filter((fee) =>  endday.toISOString().split('T')[0] > fee.use_date);
+  //   const Start = fees.filter((fee) =>  startday.toISOString().split('T')[0] < fee.use_date);
+  //   const filterdfees = Start.filter((fee) =>  endday.toISOString().split('T')[0] > fee.use_date);
 
-    setFees(filterdfees);
-  }
-
-
-  function FilterLastMonth(){
-    refflg = refflg + 1;
+  //   setFees(filterdfees);
+  // }
 
 
+  // function FilterLastMonth(){
+  //   refflg = refflg + 1;
 
-    const startday = new Date();
-    const endday = new Date();
+
+
+  //   const startday = new Date();
+  //   const endday = new Date();
 
     
-    startday.setMonth(startday.getMonth() - 1);
-    startday.setDate(1);
-    endday.setDate(0);
+  //   startday.setMonth(startday.getMonth() - 1);
+  //   startday.setDate(1);
+  //   endday.setDate(0);
 
 
 
-    const Start = fees.filter((fee) =>  startday.toISOString().split('T')[0] < fee.use_date);
-    const filterdfees = Start.filter((fee) =>  endday.toISOString().split('T')[0] > fee.use_date);
+  //   const Start = fees.filter((fee) =>  startday.toISOString().split('T')[0] < fee.use_date);
+  //   const filterdfees = Start.filter((fee) =>  endday.toISOString().split('T')[0] > fee.use_date);
 
-    setFees(filterdfees);
-  }
+  //   setFees(filterdfees);
+  // }
 
   
 
@@ -99,7 +99,7 @@ const Fee = (props) => {
 
 
 
-
+{/* 
     <ToggleButtonGroup
   color="primary"
   value={alignment}
@@ -110,9 +110,9 @@ const Fee = (props) => {
   <ToggleButton onClick={FilterLastMonth} value="android">先月</ToggleButton>
   <ToggleButton onClick={FilterNowMonth} value="web">今月</ToggleButton>
   <ToggleButton value="ios">来月</ToggleButton>
-</ToggleButtonGroup>
+</ToggleButtonGroup> */}
 
-    <Table size="small" >
+<Table size="small" >
       <TableHead>
         <TableRow>
           <TableCell>UserID</TableCell>
@@ -147,10 +147,6 @@ const Fee = (props) => {
 
 
 
-
-    {/* <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
-      See more orders
-    </Link> */}
   </>
   );
 };
