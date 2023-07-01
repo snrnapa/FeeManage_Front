@@ -14,7 +14,6 @@ const InputWorker = () => {
 
 
     const handleSubmit = (e) => {
-
         e.preventDefault();
         console.log({
             id: idRef.current.value,
@@ -23,7 +22,25 @@ const InputWorker = () => {
             dept: deptRef.current.value,
             team: teamRef.current.value
 
+
+    
+
         })
+
+
+        const requestOptions ={
+            method: 'POST',
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                id: idRef.current.value,
+                first_name: first_nameRef.current.value,
+                last_name: last_nameRef.current.value,
+                dept: deptRef.current.value,
+                team: teamRef.current.value
+            })
+
+            };
+            fetch('http://localhost:8080/',requestOptions)
         }
 
 
@@ -67,12 +84,12 @@ const InputWorker = () => {
 
     <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="id">ID</label>
+          <label htmlFor="id">ID:    </label>
           <Input id="id" name="id" inputRef={idRef} />
         </div>
 
         <div>
-          <label htmlFor="first_name">First_Name</label>
+          <label htmlFor="first_name">First_Name:    </label>
           <Input
             id="first_name"
             name="first_name"
@@ -84,7 +101,7 @@ const InputWorker = () => {
 
 
         <div>
-          <label htmlFor="last_name">last_Name</label>
+          <label htmlFor="last_name">last_Name:    </label>
           <Input
             id="last_name"
             name="last_name"
@@ -94,7 +111,7 @@ const InputWorker = () => {
         </div>
 
         <div>
-          <label htmlFor="dept">dept</label>
+          <label htmlFor="dept">dept:    </label>
           <Input
             id="dept"
             name="dept"
@@ -105,7 +122,7 @@ const InputWorker = () => {
 
 
         <div>
-          <label htmlFor="team">team</label>
+          <label htmlFor="team">team:    </label>
           <Input
             id="team"
             name="team"
