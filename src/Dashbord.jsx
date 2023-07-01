@@ -16,7 +16,7 @@ import Paper from "@mui/material/Paper";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { mainListItems, secondaryListItems } from "./components/Hummenu";
-import Orders from "./components/Orders";
+import Worker from "./components/Worker";
 import Fee from "./components/Fee";
 
 const drawerWidth = 240;
@@ -141,7 +141,7 @@ export default function Dashboard() {
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-                <Orders />
+                <Worker />
               </Paper>
             </Grid>
           </Grid>
