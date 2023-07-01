@@ -23,6 +23,7 @@ export default function Worker() {
   const [workers , setWorkers] = useState([]);
   // const [toggle , setToggle] = useState(false);
   const [filter , setFilter] = useState('ALL');
+  const [refflg , setRefflg] = useState(0);
 
     // フィルターの切り替え
   const handleFilterChange = value => setFilter(value);
@@ -55,7 +56,7 @@ export default function Worker() {
             setWorkers(data);
      
           })
-        },[]);
+        },[refflg]);
         
 
 
@@ -66,7 +67,7 @@ export default function Worker() {
 
       <Title>User List</Title>
 
-      <InputWorker/>
+      <InputWorker refflg={refflg} setRefflg={setRefflg}/>
 
 
       <Filter

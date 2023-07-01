@@ -3,9 +3,9 @@ import React from 'react'
 import { useRef } from 'react';
 import { Input } from '@mui/material';
 
-const InputWorker = () => {
+const InputWorker = (props) => {
 
-
+    const {refflg , setRefflg} = props;
     const idRef = useRef(null);
     const first_nameRef = useRef(null);
     const last_nameRef = useRef(null);
@@ -15,17 +15,7 @@ const InputWorker = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log({
-            id: idRef.current.value,
-            first_name: first_nameRef.current.value,
-            last_name: last_nameRef.current.value,
-            dept: deptRef.current.value,
-            team: teamRef.current.value
 
-
-    
-
-        })
 
 
         const requestOptions ={
@@ -41,6 +31,8 @@ const InputWorker = () => {
 
             };
             fetch('http://localhost:8080/',requestOptions)
+            setRefflg(refflg + 1);
+
         }
 
 
