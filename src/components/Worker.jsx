@@ -91,15 +91,6 @@ function preventDefault(event) {
 
       <InputWorker refflg={refflg} setRefflg={setRefflg}/>
 
-      <ButtonGroup>
-
-        {workers.map((worker) => (
-          <Button>{worker.dept}</Button>
-        ))}
-
-
-      </ButtonGroup>
-
 
       <Filter
         onChange={handleFilterChange}

@@ -8,10 +8,16 @@ export const Filter = (props) => {
     // propsを定義  
   const { value, onChange } = props;
   // フィルターの切り替え
-  const handleClick = (key, event) => {
-    event.preventDefault();
+  const handleClick = (key) => {
+    
     onChange(key);
     // console.log(key);
+  }
+
+
+
+  const depttest = () =>{
+    console.log(props.workers);
   }
   return (
     <>
@@ -23,22 +29,23 @@ export const Filter = (props) => {
 
             <Button
                     href="#"
-                    onClick={handleClick.bind(null, 'ALL')}
+                    onClick={() => handleClick('ALL')}
             
             >
                 ALL
             </Button>
 
+
             <Button
                     href="#"
-                    onClick={handleClick.bind(null, 'PPU')}
+                    onClick={() => handleClick('PPU')}
                     >
                 PPU
             </Button>
 
             <Button
                     href="#"
-                    onClick={handleClick.bind(null, 'HHB')}
+                    onClick={() => handleClick('HHB')}
                     >
                 HHB
             </Button>
@@ -47,6 +54,21 @@ export const Filter = (props) => {
 
         </ButtonGroup>
 
+
+
+      <ButtonGroup>
+
+{/* {props.workers.map((worker) => (
+  <Button onClick={handleClick.bind(null, {worker.dept})} >team</Button>
+))} */}
+
+
+</ButtonGroup>
+
+
+
+
+      <Button onClick={depttest}>ボタンやわ</Button>
         <hr/>
 
         
