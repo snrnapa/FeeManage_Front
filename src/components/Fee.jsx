@@ -31,7 +31,7 @@ const Fee = (props) => {
   const GetUrl = 'http://localhost:8080/fee?id=' + props.targetWorker;
 
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // fetch("http://localhost:8080/fee?id=1", { method: "GET" })
     setFees([]);
     fetch(GetUrl, { method: "GET" })
@@ -44,7 +44,7 @@ const Fee = (props) => {
 
     
     
-},[props.targetworker, refflg]);
+},[props.targetWorker, refflg]);
 
   
 
