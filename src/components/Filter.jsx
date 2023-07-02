@@ -11,67 +11,24 @@ export const Filter = (props) => {
   const handleClick = (key) => {
     
     onChange(key);
-    // console.log(key);
   }
 
 
-
-  const depttest = () =>{
-    console.log(props.workers);
-  }
   return (
     <>
 
         <FilterAltIcon fontSize="large"/>
 
-
-        <ButtonGroup>
-
-            <Button
-                    href="#"
-                    onClick={() => handleClick('ALL')}
-            
-            >
-                ALL
-            </Button>
-
-
-            <Button
-                    href="#"
-                    onClick={() => handleClick('PPU')}
-                    >
-                PPU
-            </Button>
-
-            <Button
-                    href="#"
-                    onClick={() => handleClick('HHB')}
-                    >
-                HHB
-            </Button>
-
-
-
-        </ButtonGroup>
-
-
-
       <ButtonGroup>
 
-{/* {props.workers.map((worker) => (
-  <Button onClick={handleClick.bind(null, {worker.dept})} >team</Button>
-))} */}
+        {props.workers.map((worker) => (
+          <Button onClick={() => handleClick(worker.dept)}> {worker.dept} </Button>
+        ))}
 
-
-</ButtonGroup>
-
+      </ButtonGroup>
 
 
 
-      <Button onClick={depttest}>ボタンやわ</Button>
-        <hr/>
-
-        
         
     </>
   )
