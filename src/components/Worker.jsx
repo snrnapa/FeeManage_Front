@@ -9,7 +9,7 @@ import Title from './Title';
 import { useState , useEffect, useRef} from 'react';
 import Filter from './Filter'
 import Fee from './Fee';
-import { Button, ButtonBase, Input } from '@mui/material';
+import { Button, ButtonBase, ButtonGroup, Input } from '@mui/material';
 import InputWorker from './InputWorker';
 import Dashboard from '../Dashbord';
 
@@ -17,17 +17,35 @@ function preventDefault(event) {
   event.preventDefault();
 }
 
-  const Worker = (props) => {
+  export default Worker = (props) => {
+
+
+
+
+
   // ランダムなキーを取得
   const getKey = () => Math.random().toString(32).substring(2);
 
   const [workers , setWorkers] = useState([]);
   // const [targetWorker , setTargetWorker] = props;
   const [filter , setFilter] = useState('ALL');
+  const [allfilters , setAllfilters] = useState();
   const [refflg , setRefflg] = useState(0);
 
     // フィルターの切り替え
   const handleFilterChange = value => setFilter(value);
+
+
+
+
+
+  useEffect(() =>{
+
+    
+    
+    console.log(props);
+      
+  },[workers])
 
   const DisplayWorkers = workers.filter(worker => {
     if (filter === 'ALL') return true;
@@ -73,10 +91,20 @@ function preventDefault(event) {
 
       <InputWorker refflg={refflg} setRefflg={setRefflg}/>
 
+      <ButtonGroup>
+
+        {workers.map((worker) => (
+          <Button>{worker.dept}</Button>
+        ))}
+
+
+      </ButtonGroup>
+
 
       <Filter
         onChange={handleFilterChange}
         value={filter}
+        workers = {workers}
       />
 
       <Table size="small" >
@@ -115,5 +143,3 @@ function preventDefault(event) {
     </>
   );
 }
-
-export default Worker;
