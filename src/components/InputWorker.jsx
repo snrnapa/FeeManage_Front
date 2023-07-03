@@ -1,9 +1,10 @@
-import { Button } from '@mui/base';
 import React from 'react'
 import { useRef } from 'react';
-import { Input } from '@mui/material';
+import { ButtonBase, Input } from '@mui/material';
 import Title from './Title';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const InputWorker = (props) => {
 
@@ -127,11 +128,14 @@ const InputWorker = (props) => {
           />
         </div>
 
+        <br/>
+        <Button type='submit' variant="outlined" startIcon={<PersonAddAltIcon />}>
+        ADD
+      </Button>
 
-        <div>
-          <button type="submit">ログイン</button>
-        </div>
       </form>
+      <br/>
+
 
   </>
 
