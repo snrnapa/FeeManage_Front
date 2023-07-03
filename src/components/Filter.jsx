@@ -36,25 +36,15 @@ export const Filter = (props) => {
     setDepts(deptlist);
 
 
-  },[])
+  },[props.workers])
 
 
   const distincttest = () => {
 
-    
-    // let newworkers = props.workers;
 
-    // newworkers.map((worker) => {
-    //   if(!deptlist.includes(worker.dept)){
-
-    //     deptlist.push(worker.dept);
-
-    //   }
-
-
-    // })
     
     console.log(depts);
+    console.log(props.workers);
 
 
 
