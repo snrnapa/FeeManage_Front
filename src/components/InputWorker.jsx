@@ -2,6 +2,8 @@ import { Button } from '@mui/base';
 import React from 'react'
 import { useRef } from 'react';
 import { Input } from '@mui/material';
+import Title from './Title';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 
 const InputWorker = (props) => {
 
@@ -68,6 +70,8 @@ const InputWorker = (props) => {
   return (
 
     <>
+
+    <Title>User Input <PersonAddAltIcon fontSize='large' /> </Title>
 
 
 

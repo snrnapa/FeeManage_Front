@@ -13,6 +13,7 @@ import { Button, ButtonBase, ButtonGroup, Input } from '@mui/material';
 import InputWorker from './InputWorker';
 import Dashboard from '../Dashbord';
 import { DataGrid } from '@mui/x-data-grid';
+import PersonIcon from '@mui/icons-material/Person';
 
 
 function preventDefault(event) {
@@ -65,24 +66,13 @@ function preventDefault(event) {
     // フィルターの切り替え
   const handleFilterChange = value => setFilter(value);
 
-
-
-
-
   useEffect(() =>{
-
-    
-    
     console.log(props);
-      
   },[workers])
 
-
-
   const DisplayWorkers = workers.filter(worker => {
+    if (filter === worker.dept) return worker.dept == worker.dept
     if (filter === 'ALL') return true;
-    if (filter === 'PPU') return worker.dept == 'PPU';
-    if (filter === 'HHB') return worker.dept == 'HHB';
   })
 
   const ChangeTargetWorker = (worker) => {
@@ -119,7 +109,8 @@ function preventDefault(event) {
 
 
 
-      <Title>User List</Title>
+
+
 
       <InputWorker refflg={refflg} setRefflg={setRefflg}/>
 
@@ -129,6 +120,13 @@ function preventDefault(event) {
         value={filter}
         workers = {workers}
       />
+
+      <Title>UserList       <PersonIcon fontSize='large'/></Title>
+
+
+
+
+
 
 
 

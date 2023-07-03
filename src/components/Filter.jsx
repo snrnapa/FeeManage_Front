@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Button, ButtonGroup } from '@mui/material';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import { useState } from 'react';
+import Title from './Title';
 
 export const Filter = (props) => {
 
@@ -15,8 +16,6 @@ export const Filter = (props) => {
     onChange(key);
   }
 
-
-
   useEffect(() => {
 
     let deptlist = [];
@@ -25,29 +24,17 @@ export const Filter = (props) => {
 
     newworkers.map((worker) => {
       if(!deptlist.includes(worker.dept)){
-
         deptlist.push(worker.dept);
-        
-
       }
-
-    
     })
     setDepts(deptlist);
-
-
   },[props.workers])
 
 
   const distincttest = () => {
 
-
-    
     console.log(depts);
     console.log(props.workers);
-
-
-
 
   }
 
@@ -57,7 +44,8 @@ export const Filter = (props) => {
   return (
     <>
 
-        <FilterAltIcon fontSize="large"/>
+<Title>Filter <FilterAltIcon fontSize="large"/></Title>
+
 
       <ButtonGroup>
 
@@ -69,8 +57,6 @@ export const Filter = (props) => {
 
       <Button onClick={distincttest}>distinct</Button>
 
-
-        
     </>
   )
 }
