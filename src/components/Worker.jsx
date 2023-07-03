@@ -12,12 +12,42 @@ import Fee from './Fee';
 import { Button, ButtonBase, ButtonGroup, Input } from '@mui/material';
 import InputWorker from './InputWorker';
 import Dashboard from '../Dashbord';
+import { DataGrid } from '@mui/x-data-grid';
+
 
 function preventDefault(event) {
   event.preventDefault();
 }
 
   export default Worker = (props) => {
+
+
+
+
+    const columns = [
+      { field: 'id', headerName: 'ID', width: 70 },
+      { field: 'first_name', headerName: 'First name', width: 100 },
+      { field: 'last_name', headerName: 'Last name', width: 100 },
+      {
+        field: 'dept',
+        headerName: 'dept',
+        width: 150,
+      },
+      {
+        field: 'team',
+        headerName: 'team',
+        width: 150,
+      },
+      // {
+      //   field: 'fullName',
+      //   headerName: 'Full name',
+      //   description: 'This column has a value getter and is not sortable.',
+      //   sortable: false,
+      //   width: 160,
+      //   valueGetter: (params) =>
+      //     `${params.workers.first_name || ''} ${params.workers.last_name || ''}`,
+      // },
+    ];
 
 
 
@@ -46,6 +76,8 @@ function preventDefault(event) {
     console.log(props);
       
   },[workers])
+
+
 
   const DisplayWorkers = workers.filter(worker => {
     if (filter === 'ALL') return true;
@@ -98,35 +130,22 @@ function preventDefault(event) {
         workers = {workers}
       />
 
-      <Table size="small" >
-        <TableHead>
-          <TableRow>
-            <TableCell>UserId</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Dept/Team</TableCell>
-            <TableCell>Button</TableCell>
 
 
 
-
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {DisplayWorkers.map((worker) => (
-            <TableRow key={worker.id}>
-              <TableCell>{worker.id}</TableCell>
-              <TableCell>{worker.first_name} {worker.last_name}</TableCell>
-              <TableCell>{worker.dept} / {worker.team}</TableCell>
-              <TableCell> 
-                 <Button onClick={() => ChangeTargetWorker(worker.id)} >Detail</Button> 
-                
-                </TableCell>
+      <DataGrid
+        rows={DisplayWorkers}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 7 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+        checkboxSelection
+      />
 
 
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
 
 
 
