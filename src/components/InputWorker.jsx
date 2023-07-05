@@ -54,7 +54,7 @@ const InputWorker = (props) => {
     <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="id">ID:    </label>
-          <Input id="id" name="id" inputRef={idRef} />
+          <Input id="id" name="id" inputRef={idRef} placeholder="9999" />
         </div>
 
         <div>
@@ -64,6 +64,8 @@ const InputWorker = (props) => {
             name="first_name"
             inputRef={first_nameRef}
             type="first_name"
+            placeholder="yasushi"
+
           />
         </div>
 
@@ -76,6 +78,7 @@ const InputWorker = (props) => {
             name="last_name"
             inputRef={last_nameRef}
             type="last_name"
+            placeholder="suzuki"
           />
         </div>
 
@@ -86,6 +89,7 @@ const InputWorker = (props) => {
             name="dept"
             inputRef={deptRef}
             type="dept"
+            placeholder="AAF"
           />
         </div>
 
@@ -97,6 +101,8 @@ const InputWorker = (props) => {
             name="team"
             inputRef={teamRef}
             type="team"
+            placeholder="PPA"
+
           />
         </div>
 
