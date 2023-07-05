@@ -9,15 +9,16 @@ const AttendanceRecord = () => {
         d.setDate(1);
 
         let end = new Date();
-        end.setMonth(end.getMonth() + 1);
+        let endmonth = end.getMonth() + 1;
+        // console.log(endmonth);
 
+        // console.log(end.getMonth());
 
-        console.log(end.getMonth());
+        while(d.getMonth() != endmonth){
+            console.log(d);
+            d.setDate(d.getDate() + 1);
 
-
-        // while(d.getMonth() = EndMonth){
-
-        // }
+        }
 
 
 
