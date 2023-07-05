@@ -40,34 +40,6 @@ const InputWorker = (props) => {
 
 
 
-
-
-    function workerinsert(){
-
-        const requestOptions ={
-            method: 'POST',
-            headers:{'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                "id":16,
-                "first_name":"pepepe",
-                "last_name":"pepepe",
-                "dept":"HHB",
-                "team":"UUY"
-            
-            })
-
-
-
-    
-            };
-            fetch('http://localhost:8080/',requestOptions)
-
-
-
-    }
-
-
-
   return (
 
     <>
