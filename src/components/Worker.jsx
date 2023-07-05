@@ -58,6 +58,7 @@ function preventDefault(event) {
   const getKey = () => Math.random().toString(32).substring(2);
 
   const [workers , setWorkers] = useState([]);
+  // const [targetWorker , setTargetWorker] = props;
   const [filter , setFilter] = useState('ALL');
   const [allfilters , setAllfilters] = useState();
   const [refflg , setRefflg] = useState(0);
@@ -74,10 +75,22 @@ function preventDefault(event) {
     if (filter === 'ALL') return true;
   })
 
+  // const ChangeTargetWorker = (worker) => {
+  //   const oneworker = worker;
+  //   props.HandleTargetWorker(oneworker);
+  // }
+
+
+
   const ChangeTargetWorker = (e) => {
-    props.HandleTargetWorker(e.row);
-    console.log(e.row);
+    console.log(e.id);
+    // const oneworker = worker;
+    props.HandleTargetWorker(e.id);
   }
+
+
+
+
 
 
   // const [targetid , setTargetid] =useState();
@@ -110,6 +123,7 @@ function preventDefault(event) {
 
 
 
+
       <InputWorker refflg={refflg} setRefflg={setRefflg}/>
 
 
@@ -120,6 +134,11 @@ function preventDefault(event) {
       />
 
       <Title>UserList       <PersonIcon fontSize='large'/></Title>
+
+
+
+
+
 
 
 
@@ -135,6 +154,10 @@ function preventDefault(event) {
         pageSizeOptions={[5, 10]}
         onCellDoubleClick={(event) => ChangeTargetWorker(event)}
       />
+
+
+
+
 
 
     </>

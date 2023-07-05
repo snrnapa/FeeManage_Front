@@ -27,8 +27,8 @@ const App = () => {
       <hr />
 
 
-      {  targetWorker.id > 0 
-      ? <Fee targetWorker={targetWorker.id}/>
+      {  targetWorker > 0 
+      ? <Fee targetWorker={targetWorker}/>
       : null
     }
 
