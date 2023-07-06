@@ -3,37 +3,27 @@ import { Button } from '@mui/material';
 
 const AttendanceRecord = () => {
 
+    // 現在の月の、日付をすべて出力します。
     const MonthDays = () => {
 
-        let d = new Date();
+        const d = new Date();
         d.setDate(1);
 
         let end = new Date();
         let endmonth = end.getMonth() + 1;
-        // console.log(endmonth);
 
-        // console.log(end.getMonth());
+        const days = [];
 
         while(d.getMonth() != endmonth){
-            console.log(d);
+            
+            days.push(new Date(d));
             d.setDate(d.getDate() + 1);
-
         }
 
+        console.log(days);
 
 
-        // start.setDate(1);
-        // console.log(start);
 
-        
-
-        
-        // let end = new Date();
-        // end.setMonth(end.getMonth() + 1);
-        // end.setDate(0);
-
-
-        // console.log("付き始めは" + start + "付き終わりは" + end);
 
     }
 
