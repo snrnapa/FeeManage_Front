@@ -1,11 +1,19 @@
-import React from 'react'
-import { Button } from '@mui/material';
+import React, { useEffect, useState } from 'react'
+import { Button, Table } from '@mui/material';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
 const AttendanceRecord = () => {
 
-    // 現在の月の、日付をすべて出力します。
-    const MonthDays = () => {
+    const [targetdays , setTargetdays] = useState();
+    
+    useEffect(() => {
 
+
+
+         // 現在の月の、日付をすべて出力します。
         const d = new Date();
         d.setDate(1);
 
@@ -16,16 +24,20 @@ const AttendanceRecord = () => {
 
         while(d.getMonth() != endmonth){
             
-            days.push(new Date(d));
+            days.push((new Date(d)).toLocaleDateString());
             d.setDate(d.getDate() + 1);
         }
 
-        console.log(days);
+        setTargetdays(days);
+
+        console.log(targetdays);
 
 
 
+    },[]);
 
-    }
+
+
 
 
 
@@ -34,7 +46,35 @@ const AttendanceRecord = () => {
   return (
     <>
 
-<Button onClick={MonthDays}>日付を出すで</Button>
+<Button >日付を出すで</Button>
+
+<Table size="small" >
+      <TableHead>
+        <TableRow>
+          <TableCell>日時</TableCell>
+
+
+
+
+
+        </TableRow>
+      </TableHead>
+      <TableBody>
+
+        {targetdays.map((days) => (
+
+
+            <TableRow key={targetdays} >
+            <TableCell>{days}</TableCell>
+
+            </TableRow>
+
+        ))}
+
+
+      </TableBody>
+    </Table>
+
 
     </>
   )
