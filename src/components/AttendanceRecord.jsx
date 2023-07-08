@@ -7,8 +7,8 @@ import TableRow from '@mui/material/TableRow';
 
 const AttendanceRecord = () => {
 
-    const [targetdays , setTargetdays] = useState();
-    
+    const [targetdays , setTargetdays] = useState([]);
+    const days = [];
     useEffect(() => {
 
 
@@ -20,7 +20,9 @@ const AttendanceRecord = () => {
         let end = new Date();
         let endmonth = end.getMonth() + 1;
 
-        const days = [];
+        const dates = new Object();
+
+        
 
         while(d.getMonth() != endmonth){
             
@@ -37,12 +39,6 @@ const AttendanceRecord = () => {
     },[]);
 
 
-
-
-
-
-
-
   return (
     <>
 
@@ -53,19 +49,15 @@ const AttendanceRecord = () => {
         <TableRow>
           <TableCell>日時</TableCell>
 
-
-
-
-
         </TableRow>
       </TableHead>
       <TableBody>
 
-        {targetdays.map((days) => (
+        {targetdays.map((day) => (
 
 
-            <TableRow key={targetdays} >
-            <TableCell>{days}</TableCell>
+            <TableRow key={day} >
+            <TableCell>{day}</TableCell>
 
             </TableRow>
 
