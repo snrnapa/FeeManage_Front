@@ -19,6 +19,8 @@
 [Material UI のテンプレート](https://mui.com/material-ui/getting-started/templates/)
 
 ##　参考にしたサイト
+JSX記法の中にif文を書く参考（結構いいサイト）
+https://devsakaso.com/react-conditional-branching/
 
 Springboot×React
 https://qiita.com/curry__30/items/c91d489551de68adb759

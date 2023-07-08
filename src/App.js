@@ -3,6 +3,9 @@ import "./App.css";
 import Fee from "./components/Fee";
 import Worker from "./components/Worker";
 import { Button } from "@mui/material";
+
+
+
 import AttendanceRecord from "./components/AttendanceRecord";
 
 const App = () => {
@@ -28,12 +31,19 @@ const App = () => {
       <hr />
 
 
-<AttendanceRecord/>
 
       {  targetWorker > 0 
-      ? <Fee targetWorker={targetWorker}/>
+      ? <AttendanceRecord targetWorker={targetWorker}/>
       : null
     }
+
+
+{/* <AttendanceRecord/> */}
+
+      {/* {  targetWorker > 0 
+      ? <Fee targetWorker={targetWorker}/>
+      : null
+    } */}
 
 
 

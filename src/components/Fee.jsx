@@ -19,6 +19,10 @@ const Fee = (props) => {
 
 
 
+  // 0埋問題を解消するために、データ型に変更したあとに、再度String型に変換している
+  const d = new Date(props.targetday);
+  const newTargetday = d.toLocaleDateString();
+
   const [alignment, setAlignment] = React.useState('web');
 
   const handleChange = (event, newAlignment) => {
@@ -26,10 +30,7 @@ const Fee = (props) => {
   };
 
   
-  
-
   const GetUrl = 'http://localhost:8080/fee?id=' + props.targetWorker;
-
 
   useEffect(() => {
     // fetch("http://localhost:8080/fee?id=1", { method: "GET" })
@@ -38,6 +39,21 @@ const Fee = (props) => {
       .then(res => res.json())
       .then(data => {
         setFees(data)
+
+
+        // data.map((fees) =>{
+
+        //   const newTargetday = (props.targetday).replace(/ , /g , "-");
+        //   console.log(newTargetday);
+
+        //   fees.filter((fees))
+
+
+        // }
+        
+        // )
+
+
     })
 
 
@@ -88,6 +104,48 @@ const Fee = (props) => {
   //   setFees(filterdfees);
   // }
 
+
+
+
+
+  const feetestfunction = () => {
+
+    // console.log(newTargetday);
+
+    fees.forEach((fee) => console.log(fee))
+
+    // fees.map(f => 
+
+    //   f.filter(rf => (new Date(rf.use_date)).toLocaleDateString() === newTargetday ).forEach(rf => console.log(rf))
+        
+    //   })
+
+
+
+      // console.log((new Date(f.use_date)).toLocaleDateString())
+      
+      // )
+
+    // const newfee = fees.filter(feeresult => feeresult.use_date === newTargetday)
+    // console.log(newfee)
+    
+
+
+
+
+    // const testfees =  fees.filter((fee) => fee.use_date = newTargetday);
+
+    // console.log(testfees);
+
+    // console.log(newTargetday);
+    // console.log(fees[0].use_date);
+
+
+    // const date = new Date(fees[0].use_date);
+    // console.log(date);
+    // console.log(date.toLocaleString()); // 2022/5/5 0:00:00 <-日本標準時で出力
+
+  }
   
 
 
@@ -96,6 +154,8 @@ const Fee = (props) => {
   return (
     <>
     <Title>Fee</Title>
+
+    <Button onClick={feetestfunction}>Feeをテストするぼたんやさかい</Button>
 
 
 
@@ -112,6 +172,8 @@ const Fee = (props) => {
   <ToggleButton value="ios">来月</ToggleButton>
 </ToggleButtonGroup> */}
 
+
+
 <Table size="small" >
       <TableHead>
         <TableRow>
@@ -120,29 +182,27 @@ const Fee = (props) => {
           <TableCell>Round_trip</TableCell>
           <TableCell>total_fee</TableCell>
           <TableCell>use_date</TableCell>
-
-
-
-
+          
         </TableRow>
       </TableHead>
       <TableBody>
-        {/* {fees.map((fee) => ( */}
-       {fees.map((fee) => (
-
-          <TableRow key={fee.id}>
-            <TableCell>{fee.id}</TableCell>
-            <TableCell>{fee.fee_seq}</TableCell>
-            <TableCell>{fee.round_trip}</TableCell>
-            <TableCell>{fee.total_fee}</TableCell>
-            <TableCell>{fee.use_date}</TableCell>
 
 
+        {fees.map((result) => (
 
-          </TableRow>
+
+          <TableRow key={result.id}>
+          <TableCell>{result.id}</TableCell>
+          <TableCell>{result.fee_seq}</TableCell>
+          <TableCell>{result.round_trip}</TableCell>
+          <TableCell>{result.total_fee}</TableCell>
+          <TableCell>{result.use_date}</TableCell>
+
+        </TableRow>
         ))}
-      </TableBody>
-    </Table>
+                </TableBody>
+                </Table>
+
 
 
 

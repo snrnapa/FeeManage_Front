@@ -8,7 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import Title from './Title';
 import { useState , useEffect, useRef} from 'react';
 import Filter from './Filter'
-import Fee from './Fee';
 import { Button, ButtonBase, ButtonGroup, Input } from '@mui/material';
 import InputWorker from './InputWorker';
 import Dashboard from '../Dashbord';
@@ -134,12 +133,6 @@ function preventDefault(event) {
       />
 
       <Title>UserList       <PersonIcon fontSize='large'/></Title>
-
-
-
-
-
-
 
 
 
