@@ -1,8 +1,8 @@
-import { useState } from "react";
 import "./App.css";
-import Fee from "./components/Fee";
+import ApiFetch from "./components/ApiFetch";
 import Worker from "./components/Worker";
 import { Button } from "@mui/material";
+import { useState, useEffect } from "react";
 
 
 
@@ -14,9 +14,16 @@ const App = () => {
   const HandleTargetWorker = (oneworker) => {
     setTargetWorker(oneworker)
   };
+  const [fees , setFees] = useState();
 
   function testfunction(){
-    console.log(targetWorker);
+    console.log(fees);
+  }
+
+
+  const HandleFeeProps = (newfees) => {
+    setFees(newfees);
+
   }
 
   return (
@@ -38,12 +45,10 @@ const App = () => {
     }
 
 
-{/* <AttendanceRecord/> */}
-
-      {/* {  targetWorker > 0 
-      ? <Fee targetWorker={targetWorker}/>
+    {  targetWorker > 0 
+      ? <ApiFetch targetWorker={targetWorker} HandleFeeProps={HandleFeeProps}/>
       : null
-    } */}
+    }
 
 
 

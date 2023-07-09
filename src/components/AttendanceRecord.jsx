@@ -42,7 +42,7 @@ const AttendanceRecord = (props) => {
       <TableHead>
         <TableRow>
           <TableCell>日時</TableCell>
-          <TableCell>Fee</TableCell>
+
 
 
         </TableRow>
@@ -53,10 +53,6 @@ const AttendanceRecord = (props) => {
 
             <TableRow key={day} >
             <TableCell>{day}</TableCell>
-            <TableCell> 
-                
-                <Fee targetWorker={props.targetWorker} targetday={day}/>
-            </TableCell>
 
             </TableRow>
 
