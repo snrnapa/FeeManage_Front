@@ -32,9 +32,6 @@ const ApiFetch = (props) => {
         .then(data => {
             props.HandleFeeProps(data);
 
-  
-
-  
       })
   
   

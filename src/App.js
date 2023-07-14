@@ -37,18 +37,18 @@ const App = () => {
       
       <hr />
 
+          {/* workerの情報をダブルクリックすると、targetWorkerがセットされ、こちらのAPIが実行される（Fee情報をバックから取る処理） */}
+          {  targetWorker > 0 
+            ? <ApiFetch targetWorker={targetWorker} HandleFeeProps={HandleFeeProps}/>
+            : null
+          }
 
 
       {  targetWorker > 0 
-      ? <AttendanceRecord targetWorker={targetWorker}/>
+      ? <AttendanceRecord fees={fees}/>
       : null
     }
 
-
-    {  targetWorker > 0 
-      ? <ApiFetch targetWorker={targetWorker} HandleFeeProps={HandleFeeProps}/>
-      : null
-    }
 
 
 

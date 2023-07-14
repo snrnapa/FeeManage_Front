@@ -36,31 +36,23 @@ const AttendanceRecord = (props) => {
   return (
     <>
 
-{/* <Button onClick={propstest} >テストするボタンやがな</Button> */}
-
-<Table size="small" >
-      <TableHead>
-        <TableRow>
-          <TableCell>日時</TableCell>
 
 
-
-        </TableRow>
-      </TableHead>
-      <TableBody>
-
-        {targetdays.map((day) => (
-
-            <TableRow key={day} >
-            <TableCell>{day}</TableCell>
-
-            </TableRow>
-
-        ))}
+{(() => {
+        const feemap = new Map();
+        feemap.set("hoge", "fuga");
+        feemap.set("moimoi", "oboro");
 
 
-      </TableBody>
-    </Table>
+        console.log(feemap.get("hoge"));
+
+    })()}
+
+
+
+
+
+
 
 
     </>
