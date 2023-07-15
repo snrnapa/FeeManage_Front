@@ -29,7 +29,7 @@ const AttendanceRecord = (props) => {
                 const dates = new Object();
           
                 while(d.getMonth() != endmonth){
-                    days.push((new Date(d)).toLocaleDateString());
+                    days.push((new Date(d)).toISOString().substring(0,10));
                     d.setDate(d.getDate() + 1);
                 }
           
@@ -53,7 +53,7 @@ const AttendanceRecord = (props) => {
 
 
     const listtest = () =>{
-        console.log(fee);
+        console.log(targetdays);
     }
   return (
     <>
@@ -66,7 +66,7 @@ const AttendanceRecord = (props) => {
           // console.log(fee[0])
           
           const targetfee = fee.filter((f) => {
-            return f.use_date == '2023-06-27'
+            return f.use_date == targetdays[1]
           });
 
           console.log(targetfee)
