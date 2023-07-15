@@ -10,6 +10,7 @@ const AttendanceRecord = (props) => {
 
     const [targetdays , setTargetdays] = useState([]);
     const days = [];
+    const fee = props.fees;
 
     useEffect(() => {
          // 現在の月の、日付をすべて出力します。
@@ -27,28 +28,43 @@ const AttendanceRecord = (props) => {
         setTargetdays(days);
 
         console.log(targetdays);
+
     },[]);
 
 
-    // const propstest = () =>{
-    //     console.log(fees)
-    // }
+
+
+
+
+
+    const listtest = () =>{
+        console.log(typeof fee);
+    }
   return (
     <>
 
 
 
-{(() => {
-        const feemap = new Map();
-        feemap.set("hoge", "fuga");
-        feemap.set("moimoi", "oboro");
+      {(() => {
+        if (typeof fee === 'undefined') {
+          console.log("まだです");
+          
+        }else{
+          console.log(fee);
+        }
+      })()}
 
 
-        console.log(feemap.get("hoge"));
-
-    })()}
 
 
+
+      <Button onClick={listtest}>リストのテストボタン屋で</Button>
+
+
+
+
+
+    
 
 
 
