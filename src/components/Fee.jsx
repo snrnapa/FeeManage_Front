@@ -13,6 +13,12 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 
 const Fee = (props) => {
+
+  const targetfee = props.fee;
+
+  const targetday = props.day;
+
+  
  
 
   
@@ -65,7 +71,7 @@ const Fee = (props) => {
 
     // console.log(newTargetday);
 
-    fees.forEach((fee) => console.log(fee))
+    // fees.forEach((fee) => console.log(fee))
 
     // fees.map(f => 
 
@@ -111,7 +117,58 @@ const Fee = (props) => {
 
     <Button onClick={feetestfunction}>Feeをテストするぼたんやさかい</Button>
 
+    {(() => {
 
+
+      if (!(typeof targetfee === 'undefined') && !(typeof targetday === 'undefined') ) {
+        const newfee = targetfee.filter((f) => {
+          return f.use_date == targetday
+        })
+
+        return(
+          <div>
+
+          <Table size="small" >
+          <TableHead>
+            <TableRow>
+              <TableCell>UserID</TableCell>
+              <TableCell>Fee_seq</TableCell>
+              <TableCell>Round_trip</TableCell>
+              <TableCell>total_fee</TableCell>
+              <TableCell>use_date</TableCell>
+              
+            </TableRow>
+          </TableHead>
+          <TableBody>
+
+
+          {newfee.map((result) => (
+
+
+            <TableRow key={result.id}>
+              <TableCell>{result.id}</TableCell>
+              <TableCell>{result.fee_seq}</TableCell>
+              <TableCell>{result.round_trip}</TableCell>
+              <TableCell>{result.total_fee}</TableCell>
+              <TableCell>{result.use_date}</TableCell>
+
+            </TableRow>
+          ))}
+          </TableBody>
+          </Table>
+
+          </div>
+
+
+
+
+
+
+        )
+
+
+      }
+    })()}
 
 {/* 
     <ToggleButtonGroup
@@ -127,7 +184,7 @@ const Fee = (props) => {
 </ToggleButtonGroup> */}
 
 
-
+{/* 
 <Table size="small" >
       <TableHead>
         <TableRow>
@@ -142,7 +199,7 @@ const Fee = (props) => {
       <TableBody>
 
 
-        {fees.map((result) => (
+        {targetfee.map((result) => (
 
 
           <TableRow key={result.id}>
@@ -155,7 +212,7 @@ const Fee = (props) => {
         </TableRow>
         ))}
                 </TableBody>
-                </Table>
+                </Table> */}
 
 
 

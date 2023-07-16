@@ -61,15 +61,36 @@ const AttendanceRecord = (props) => {
 
 
       {(() => {
+        // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
         if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined') ) {
 
           // console.log(fee[0])
-          
-          const targetfee = fee.filter((f) => {
-            return f.use_date == targetdays[1]
-          });
 
-          console.log(targetfee)
+          return (
+            <div>
+
+
+
+                {targetdays.map((d) => (
+                  <div>
+                    <h2>{d}</h2>
+                    <Fee fee={fee} day={d}/>
+
+                  </div>
+                ))}
+
+
+
+
+            </div>
+          )
+
+
+
+          
+
+
+
           
         }else{
                     // 処理を何も行わない
