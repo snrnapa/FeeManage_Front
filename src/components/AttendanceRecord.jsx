@@ -12,6 +12,7 @@ const AttendanceRecord = (props) => {
     const [targetdays , setTargetdays] = useState([]);
     const days = [];
     const fee = props.fees;
+    const targetWorker = props.targetWorker;
 
     useEffect(() => {
 
@@ -74,7 +75,7 @@ const AttendanceRecord = (props) => {
                 {targetdays.map((d) => (
                   <div>
                     <h2>{d}</h2>
-                    <Fee fee={fee} day={d}/>
+                    <Fee fee={fee} day={d} targetWorker={targetWorker}/>
 
                   </div>
                 ))}

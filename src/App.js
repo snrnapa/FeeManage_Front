@@ -45,7 +45,7 @@ const App = () => {
 
 
       {  targetWorker > 0 
-      ? <AttendanceRecord fees={fees}/>
+      ? <AttendanceRecord fees={fees} targetWorker={targetWorker}/>
       : null
     }
 

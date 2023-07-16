@@ -18,6 +18,9 @@ const Fee = (props) => {
 
   const targetday = props.day;
 
+  const [refresh , setRefresh] = useState(0);
+  const targetWorker = props.targetWorker;
+
   
  
 
@@ -68,6 +71,9 @@ const Fee = (props) => {
 
 
   const feetestfunction = () => {
+    const newrefresh = refresh;
+    setRefresh(newrefresh + 1);
+    console.log(refresh);
 
     // console.log(newTargetday);
 
@@ -121,8 +127,9 @@ const Fee = (props) => {
 
 
       if (!(typeof targetfee === 'undefined') && !(typeof targetday === 'undefined') ) {
+        console.log(targetfee)
         const newfee = targetfee.filter((f) => {
-          return f.use_date == targetday
+          return f.use_date == targetday && f.id == targetWorker
         })
 
         return(
