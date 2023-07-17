@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Table } from '@mui/material';
+import { Button, Table, ButtonGroup } from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
@@ -56,7 +56,7 @@ const AttendanceRecord = (props) => {
       for (let i = 0; i < 12; i++) {
         const devd = new Date(d.setMonth(d.getMonth()+1))
         // console.log(testday.toISOString().substring(0,10));
-        m.push(devd.toISOString().substring(0,10))
+        m.push(devd.toISOString().substring(0,7))
 
       }
       setYearmonth(m);
@@ -66,20 +66,22 @@ const AttendanceRecord = (props) => {
 
   return (
     <>
-            
-      <Button onClick={listtest}>リストのテストボタン屋で</Button>
-
-      
-
-
 
       {(() => {
         if(!(typeof yearmonth === 'undefined')){
           return(
             <div>
-              {yearmonth.map((y) => (
-                <li>{y}</li>
-              ))}
+
+              <ButtonGroup>
+
+                {yearmonth.map((y) => (
+                  // <Button onClick={() => handleClick(y)}> {y} </Button>
+                  <Button> {y} </Button>
+
+                ))}
+        
+
+              </ButtonGroup>
             </div>
 
           )
