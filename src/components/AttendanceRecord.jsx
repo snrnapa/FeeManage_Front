@@ -13,6 +13,7 @@ const AttendanceRecord = (props) => {
     const days = [];
     const fee = props.fees;
     const targetWorker = props.targetWorker;
+    const [yearmonth , setYearmonth] = useState([]);
 
     useEffect(() => {
 
@@ -21,8 +22,9 @@ const AttendanceRecord = (props) => {
       
       if(!(typeof fee === 'undefined') ){
 
-        
-        
+
+
+
                 const d = new Date();
                 d.setDate(1);
                 let end = new Date();
@@ -54,10 +56,34 @@ const AttendanceRecord = (props) => {
 
 
     const listtest = () =>{
-        console.log(targetdays);
+      const m = [];
+
+      const d = new Date();
+      d.setMonth(-6);
+
+
+
+      for (let i = 0; i < 12; i++) {
+        const devd = new Date(d.setMonth(d.getMonth()+1))
+        // console.log(testday.toISOString().substring(0,10));
+
+        m.push(devd)
+
+
+        
+      }
+      console.log(m);
+
+
+
+
+
     }
   return (
     <>
+            
+        <Button onClick={listtest}>リストのテストボタン屋で</Button>
+
 
 
 
@@ -68,6 +94,7 @@ const AttendanceRecord = (props) => {
           // console.log(fee[0])
 
           return (
+
             <div>
 
 
@@ -107,7 +134,6 @@ const AttendanceRecord = (props) => {
 
 
 
-      <Button onClick={listtest}>リストのテストボタン屋で</Button>
 
 
 

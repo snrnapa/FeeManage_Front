@@ -15,6 +15,48 @@ const FilterMonth = () => {
 
 
 
+  
+
+  function FilterNowMonth(){
+    refflg = refflg + 1;
+    const startday = new Date();
+    const endday = new Date();
+
+    startday.setDate(1);
+
+    endday.setMonth(endday.getMonth() + 1);
+    endday.setDate(0);
+
+    const Start = fees.filter((fee) =>  startday.toISOString().split('T')[0] < fee.use_date);
+    const filterdfees = Start.filter((fee) =>  endday.toISOString().split('T')[0] > fee.use_date);
+
+    setFees(filterdfees);
+  }
+
+
+  function FilterLastMonth(){
+    refflg = refflg + 1;
+
+
+
+    const startday = new Date();
+    const endday = new Date();
+
+    
+    startday.setMonth(startday.getMonth() - 1);
+    startday.setDate(1);
+    endday.setDate(0);
+
+
+
+    const Start = fees.filter((fee) =>  startday.toISOString().split('T')[0] < fee.use_date);
+    const filterdfees = Start.filter((fee) =>  endday.toISOString().split('T')[0] > fee.use_date);
+
+    setFees(filterdfees);
+  }
+
+
+
 
   return (
     <>
@@ -29,10 +71,9 @@ const FilterMonth = () => {
   onChange={handleChange}
   aria-label="Platform"
 >
-  {/* <ToggleButton onClick={FilterLastMonth} value="android">先月</ToggleButton>
-  <ToggleButton onClick={FilterNowMonth} value="web">今月</ToggleButton> */}
-  <ToggleButton  value="android">先月</ToggleButton>
-  <ToggleButton  value="web">今月</ToggleButton>
+
+  <ToggleButton onClick={FilterNowMonth} value="android">先月</ToggleButton>
+  <ToggleButton  onClick={FilterLastMonth} value="web">今月</ToggleButton>
   <ToggleButton value="ios">来月</ToggleButton>
 </ToggleButtonGroup>
     

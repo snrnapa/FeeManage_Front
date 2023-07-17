@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 
 
 import AttendanceRecord from "./components/AttendanceRecord";
-import FilterMonth from "./components/FilterMonth";
 
 const App = () => {
 
@@ -33,7 +32,6 @@ const App = () => {
 
       <Button onClick={testfunction}>ぼたんやで</Button>
 
-      <FilterMonth />
 
       <Worker HandleTargetWorker={HandleTargetWorker}/>
 
