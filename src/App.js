@@ -3,11 +3,17 @@ import ApiFetch from "./components/ApiFetch";
 import Worker from "./components/Worker";
 import { Button,ButtonGroup } from "@mui/material";
 import { useState, useEffect } from "react";
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import React from "react";
+import Title from "./components/Title";
+import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 
 
 
 
 import AttendanceRecord from "./components/AttendanceRecord";
+
 
 const App = () => {
 
@@ -15,6 +21,15 @@ const App = () => {
   const [yearmonth , setYearmonth] = useState([]);
   const [targetmonth , setTargetmonth] = useState(null);
   const [fees , setFees] = useState();
+
+
+
+  const [alignment, setAlignment] = React.useState('web');
+
+  const handleChange = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
+
 
 
   const HandleTargetWorker = (oneworker) => {
@@ -55,7 +70,7 @@ const App = () => {
 
   return (
     <>
-
+          <Title><CenterFocusStrongIcon fontSize='large'/>Selected : {targetmonth}      </Title>
       <Button onClick={testfunction}>ぼたんやで</Button>
 
       {(() => {
@@ -63,16 +78,25 @@ const App = () => {
           return(
             <div>
 
-              <ButtonGroup>
 
-                {yearmonth.map((y) => (
-                  // <Button onClick={() => handleClick(y)}> {y} </Button>
-                  <Button onClick={() => HandleTargetMonth({y})}>{y}</Button>
 
+              <ToggleButtonGroup
+                color="primary"
+                value={alignment}
+                exclusive
+                onChange={handleChange}
+                aria-label="Platform"
+              >
+              {yearmonth.map((y) => (
+                <ToggleButton value={{y}} onClick={() => HandleTargetMonth({y})}>{y}</ToggleButton>
                 ))}
-        
+              </ToggleButtonGroup>
 
-              </ButtonGroup>
+
+
+
+
+
             </div>
 
           )
