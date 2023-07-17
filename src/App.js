@@ -24,7 +24,7 @@ const App = () => {
 
 
 
-  const [alignment, setAlignment] = React.useState('web');
+  const [alignment, setAlignment] = useState('2023-02')
 
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
@@ -88,7 +88,7 @@ const App = () => {
                 aria-label="Platform"
               >
               {yearmonth.map((y) => (
-                <ToggleButton value={{y}} onClick={() => HandleTargetMonth({y})}>{y}</ToggleButton>
+                <ToggleButton value={y} onClick={() => HandleTargetMonth({y})}>{y}</ToggleButton>
                 ))}
               </ToggleButtonGroup>
 
