@@ -14,6 +14,7 @@ const AttendanceRecord = (props) => {
     const fee = props.fees;
     const targetWorker = props.targetWorker;
     const [yearmonth , setYearmonth] = useState([]);
+    const targetmonth = props.targetmonth;
 
     useEffect(() => {
 
@@ -22,29 +23,37 @@ const AttendanceRecord = (props) => {
       
       if(!(typeof fee === 'undefined') ){
 
+        const d = new Date();
+        console.log(targetmonth)
+
+        if(!(typeof targetmonth === 'undefined') && !(targetmonth === null)){
+          console.log(targetmonth)
+          d.setFullYear(targetmonth.substring(0,4));
+          d.setMonth(targetmonth.substring(5,7) - 1);
 
 
+        }
 
-                const d = new Date();
-                d.setDate(1);
-                let end = new Date();
-                let endmonth = end.getMonth() + 1;
-                const dates = new Object();
-          
-                while(d.getMonth() != endmonth){
-                    days.push((new Date(d)).toISOString().substring(0,10));
-                    d.setDate(d.getDate() + 1);
-                }
-          
-                setTargetdays(days);
-                // console.log("飛ばしてないほうだよ")
+
+        d.setDate(1);
+        let end = new Date(targetmonth);
+        let endmonth = end.getMonth() + 1;
+        const dates = new Object();
+  
+        while(d.getMonth() != endmonth){
+            days.push((new Date(d)).toISOString().substring(0,10));
+            d.setDate(d.getDate() + 1);
+        }
+  
+        setTargetdays(days);
+
 
       }else{
           // 処理を何も行わない
 
       }
 
-    },[fee]);
+    },[fee,targetmonth]);
 
 
   return (

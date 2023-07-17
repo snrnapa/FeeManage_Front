@@ -13,7 +13,7 @@ const App = () => {
 
   const [targetWorker , setTargetWorker] = useState();
   const [yearmonth , setYearmonth] = useState([]);
-  const [targetmonth , setTargetmonth] = useState([]);
+  const [targetmonth , setTargetmonth] = useState(null);
   const [fees , setFees] = useState();
 
 
@@ -22,7 +22,7 @@ const App = () => {
   };
 
   const HandleTargetMonth = (e) => {
-    console.log(e)
+    setTargetmonth(e.y);
   }
 
 
@@ -30,7 +30,7 @@ const App = () => {
   useEffect(() => {
     const m = [];
     const d = new Date();
-    d.setMonth(-6);
+    d.setMonth(d.getMonth() -6);
 
     for (let i = 0; i < 12; i++) {
       const devd = new Date(d.setMonth(d.getMonth()+1))
@@ -96,7 +96,7 @@ const App = () => {
 
 
       {  targetWorker > 0 
-      ? <AttendanceRecord fees={fees} targetWorker={targetWorker} targetmonth={'2023-08'}/>
+      ? <AttendanceRecord fees={fees} targetWorker={targetWorker} targetmonth={targetmonth}/>
       : null
     }
 
