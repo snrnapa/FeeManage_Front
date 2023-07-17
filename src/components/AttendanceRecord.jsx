@@ -51,38 +51,71 @@ const AttendanceRecord = (props) => {
 
 
 
+    useEffect(() => {
+      const m = [];
+      const d = new Date();
+      d.setMonth(-6);
 
+      for (let i = 0; i < 12; i++) {
+        const devd = new Date(d.setMonth(d.getMonth()+1))
+        // console.log(testday.toISOString().substring(0,10));
+        m.push(devd.toISOString().substring(0,10))
+
+      }
+      setYearmonth(m);
+    },[])
+
+
+
+
+
+
+
+
+    
 
 
 
     const listtest = () =>{
       const m = [];
-
       const d = new Date();
       d.setMonth(-6);
-
-
 
       for (let i = 0; i < 12; i++) {
         const devd = new Date(d.setMonth(d.getMonth()+1))
         // console.log(testday.toISOString().substring(0,10));
+        m.push(devd.toISOString().substring(0,10))
 
-        m.push(devd)
-
-
-        
       }
-      console.log(m);
-
-
-
-
-
+      setYearmonth(m);
     }
+
   return (
     <>
             
-        <Button onClick={listtest}>リストのテストボタン屋で</Button>
+      <Button onClick={listtest}>リストのテストボタン屋で</Button>
+
+      
+
+
+
+      {(() => {
+        if(!(typeof yearmonth === 'undefined')){
+          return(
+            <div>
+              {yearmonth.map((y) => (
+                <li>{y}</li>
+              ))}
+            </div>
+
+          )
+        }else{
+          // 何もしない
+        }
+      })()}
+
+
+   
 
 
 
@@ -90,15 +123,9 @@ const AttendanceRecord = (props) => {
       {(() => {
         // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
         if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined') ) {
-
           // console.log(fee[0])
-
           return (
-
             <div>
-
-
-
                 {targetdays.map((d) => (
                   <div>
                     <h2>{d}</h2>
@@ -107,28 +134,12 @@ const AttendanceRecord = (props) => {
                   </div>
                 ))}
 
-
-
-
             </div>
           )
-
-
-
-          
-
-
-
-          
         }else{
                     // 処理を何も行わない
-
-
         }
-      })(
-
-        
-      )}
+      })()}
 
 
 
