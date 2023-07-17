@@ -47,53 +47,8 @@ const AttendanceRecord = (props) => {
     },[fee]);
 
 
-
-    useEffect(() => {
-      const m = [];
-      const d = new Date();
-      d.setMonth(-6);
-
-      for (let i = 0; i < 12; i++) {
-        const devd = new Date(d.setMonth(d.getMonth()+1))
-        // console.log(testday.toISOString().substring(0,10));
-        m.push(devd.toISOString().substring(0,7))
-
-      }
-      setYearmonth(m);
-    },[])
-
-
-
   return (
     <>
-
-      {(() => {
-        if(!(typeof yearmonth === 'undefined')){
-          return(
-            <div>
-
-              <ButtonGroup>
-
-                {yearmonth.map((y) => (
-                  // <Button onClick={() => handleClick(y)}> {y} </Button>
-                  <Button> {y} </Button>
-
-                ))}
-        
-
-              </ButtonGroup>
-            </div>
-
-          )
-        }else{
-          // 何もしない
-        }
-      })()}
-
-
-   
-
-
 
 
       {(() => {
