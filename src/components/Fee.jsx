@@ -191,40 +191,6 @@ const Fee = (props) => {
 </ToggleButtonGroup> */}
 
 
-{/* 
-<Table size="small" >
-      <TableHead>
-        <TableRow>
-          <TableCell>UserID</TableCell>
-          <TableCell>Fee_seq</TableCell>
-          <TableCell>Round_trip</TableCell>
-          <TableCell>total_fee</TableCell>
-          <TableCell>use_date</TableCell>
-          
-        </TableRow>
-      </TableHead>
-      <TableBody>
-
-
-        {targetfee.map((result) => (
-
-
-          <TableRow key={result.id}>
-          <TableCell>{result.id}</TableCell>
-          <TableCell>{result.fee_seq}</TableCell>
-          <TableCell>{result.round_trip}</TableCell>
-          <TableCell>{result.total_fee}</TableCell>
-          <TableCell>{result.use_date}</TableCell>
-
-        </TableRow>
-        ))}
-                </TableBody>
-                </Table> */}
-
-
-
-
-
   </>
   );
 };
