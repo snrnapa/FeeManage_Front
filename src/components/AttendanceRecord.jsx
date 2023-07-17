@@ -42,9 +42,6 @@ const AttendanceRecord = (props) => {
       }else{
           // 処理を何も行わない
 
-
-
-
       }
 
     },[fee]);
@@ -66,29 +63,6 @@ const AttendanceRecord = (props) => {
     },[])
 
 
-
-
-
-
-
-
-    
-
-
-
-    const listtest = () =>{
-      const m = [];
-      const d = new Date();
-      d.setMonth(-6);
-
-      for (let i = 0; i < 12; i++) {
-        const devd = new Date(d.setMonth(d.getMonth()+1))
-        // console.log(testday.toISOString().substring(0,10));
-        m.push(devd.toISOString().substring(0,10))
-
-      }
-      setYearmonth(m);
-    }
 
   return (
     <>
@@ -140,21 +114,6 @@ const AttendanceRecord = (props) => {
                     // 処理を何も行わない
         }
       })()}
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
 
 
     </>
