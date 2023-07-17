@@ -13,10 +13,17 @@ const App = () => {
 
   const [targetWorker , setTargetWorker] = useState();
   const [yearmonth , setYearmonth] = useState([]);
+  const [targetmonth , setTargetmonth] = useState([]);
+  const [fees , setFees] = useState();
+
+
   const HandleTargetWorker = (oneworker) => {
     setTargetWorker(oneworker)
   };
-  const [fees , setFees] = useState();
+
+  const HandleTargetMonth = (e) => {
+    console.log(e)
+  }
 
 
 
@@ -40,6 +47,7 @@ const App = () => {
 
 
 
+
   const HandleFeeProps = (newfees) => {
     setFees(newfees);
 
@@ -59,7 +67,7 @@ const App = () => {
 
                 {yearmonth.map((y) => (
                   // <Button onClick={() => handleClick(y)}> {y} </Button>
-                  <Button> {y} </Button>
+                  <Button onClick={() => HandleTargetMonth({y})}>{y}</Button>
 
                 ))}
         
@@ -88,7 +96,7 @@ const App = () => {
 
 
       {  targetWorker > 0 
-      ? <AttendanceRecord fees={fees} targetWorker={targetWorker}/>
+      ? <AttendanceRecord fees={fees} targetWorker={targetWorker} targetmonth={'2023-08'}/>
       : null
     }
 
