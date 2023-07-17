@@ -18,8 +18,14 @@ const Fee = (props) => {
 
   const targetday = props.day;
 
-  const [refresh , setRefresh] = useState(0);
   const targetWorker = props.targetWorker;
+
+
+  const [alignment, setAlignment] = React.useState('web');
+
+  const handleChange = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
 
   
  
@@ -71,9 +77,7 @@ const Fee = (props) => {
 
 
   const feetestfunction = () => {
-    const newrefresh = refresh;
-    setRefresh(newrefresh + 1);
-    console.log(refresh);
+  
 
     // console.log(newTargetday);
 
@@ -127,7 +131,6 @@ const Fee = (props) => {
 
 
       if (!(typeof targetfee === 'undefined') && !(typeof targetday === 'undefined') ) {
-        console.log(targetfee)
         const newfee = targetfee.filter((f) => {
           return f.use_date == targetday && f.id == targetWorker
         })
@@ -177,7 +180,7 @@ const Fee = (props) => {
       }
     })()}
 
-{/* 
+
     <ToggleButtonGroup
   color="primary"
   value={alignment}
@@ -185,10 +188,12 @@ const Fee = (props) => {
   onChange={handleChange}
   aria-label="Platform"
 >
-  <ToggleButton onClick={FilterLastMonth} value="android">先月</ToggleButton>
-  <ToggleButton onClick={FilterNowMonth} value="web">今月</ToggleButton>
+  {/* <ToggleButton onClick={FilterLastMonth} value="android">先月</ToggleButton>
+  <ToggleButton onClick={FilterNowMonth} value="web">今月</ToggleButton> */}
+  <ToggleButton  value="android">先月</ToggleButton>
+  <ToggleButton  value="web">今月</ToggleButton>
   <ToggleButton value="ios">来月</ToggleButton>
-</ToggleButtonGroup> */}
+</ToggleButtonGroup>
 
 
   </>
