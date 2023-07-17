@@ -1,13 +1,16 @@
 import "./App.css";
 import ApiFetch from "./components/ApiFetch";
 import Worker from "./components/Worker";
-import { Button,ButtonGroup } from "@mui/material";
+import { Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import React from "react";
 import Title from "./components/Title";
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+
 
 
 
@@ -70,49 +73,57 @@ const App = () => {
 
   return (
     <>
-          <Title><CenterFocusStrongIcon fontSize='large'/>Selected : {targetmonth}      </Title>
-      <Button onClick={testfunction}>ぼたんやで</Button>
 
-      {(() => {
-        if(!(typeof yearmonth === 'undefined')){
-          return(
-            <div>
+      <Card variant="outlined">
+        <Title><CenterFocusStrongIcon fontSize='large'/>Selected : {targetmonth}      </Title>
+        <Button onClick={testfunction}>ぼたんやで</Button>
 
 
-
-              <ToggleButtonGroup
-                color="primary"
-                value={alignment}
-                exclusive
-                onChange={handleChange}
-                aria-label="Platform"
-              >
-              {yearmonth.map((y) => (
-                <ToggleButton value={y} onClick={() => HandleTargetMonth({y})}>{y}</ToggleButton>
-                ))}
-              </ToggleButtonGroup>
+        {(() => {
+          if(!(typeof yearmonth === 'undefined')){
+            return(
+              <div>
 
 
 
+                <ToggleButtonGroup
+                  color="primary"
+                  value={alignment}
+                  exclusive
+                  onChange={handleChange}
+                  aria-label="Platform"
+                >
+                {yearmonth.map((y) => (
+                  <ToggleButton value={y} onClick={() => HandleTargetMonth({y})}>{y}</ToggleButton>
+                  ))}
+                </ToggleButtonGroup>
 
 
+              </div>
 
-            </div>
-
-          )
-        }else{
-          // 何もしない
-        }
-      })()}
+            )
+          }else{
+            // 何もしない
+          }
+        })()}
 
 
-      <Worker HandleTargetWorker={HandleTargetWorker}/>
+      </Card>
+
+      <hr />
+
+
+      <Card variant="outlined">
+        <Worker HandleTargetWorker={HandleTargetWorker}/>
+      </Card>
+
 
       
       <hr />
 
 
       {/* workerの情報をダブルクリックすると、targetWorkerがセットされ、こちらのAPIが実行される（Fee情報をバックから取る処理） */}
+
       {  targetWorker > 0 
         ? <ApiFetch targetWorker={targetWorker} HandleFeeProps={HandleFeeProps}/>
         : null
@@ -126,8 +137,8 @@ const App = () => {
 
 
 
-
     </>
+
   );
 }
 
