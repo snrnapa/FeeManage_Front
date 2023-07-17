@@ -181,19 +181,6 @@ const Fee = (props) => {
     })()}
 
 
-    <ToggleButtonGroup
-  color="primary"
-  value={alignment}
-  exclusive
-  onChange={handleChange}
-  aria-label="Platform"
->
-  {/* <ToggleButton onClick={FilterLastMonth} value="android">先月</ToggleButton>
-  <ToggleButton onClick={FilterNowMonth} value="web">今月</ToggleButton> */}
-  <ToggleButton  value="android">先月</ToggleButton>
-  <ToggleButton  value="web">今月</ToggleButton>
-  <ToggleButton value="ios">来月</ToggleButton>
-</ToggleButtonGroup>
 
 
   </>
