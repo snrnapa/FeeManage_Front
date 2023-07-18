@@ -6,6 +6,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Fee from './Fee';
 import { QrCodeScannerOutlined } from '@mui/icons-material';
+import { Grid } from '@material-ui/core';
+
+
+
 
 const AttendanceRecord = (props) => {
 
@@ -60,6 +64,17 @@ const AttendanceRecord = (props) => {
     <>
 
 
+
+
+
+        <Grid container>
+          <Grid item xs={6}>
+
+
+
+
+    
+
       {(() => {
         // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
         if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined') ) {
@@ -80,6 +95,10 @@ const AttendanceRecord = (props) => {
                     // 処理を何も行わない
         }
       })()}
+
+
+    </Grid>
+  </Grid>
 
 
     </>

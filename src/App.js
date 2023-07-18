@@ -10,7 +10,7 @@ import Title from "./components/Title";
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-
+import { Grid } from "@material-ui/core";
 
 
 
@@ -74,9 +74,13 @@ const App = () => {
   return (
     <>
 
+
       <Card variant="outlined">
         <Title><CenterFocusStrongIcon fontSize='large'/>Selected : {targetmonth}      </Title>
         <Button onClick={testfunction}>ぼたんやで</Button>
+
+
+
 
 
         {(() => {
@@ -124,16 +128,30 @@ const App = () => {
 
       {/* workerの情報をダブルクリックすると、targetWorkerがセットされ、こちらのAPIが実行される（Fee情報をバックから取る処理） */}
 
-      {  targetWorker > 0 
-        ? <ApiFetch targetWorker={targetWorker} HandleFeeProps={HandleFeeProps}/>
-        : null
-      }
+            {  targetWorker > 0 
+              ? <ApiFetch targetWorker={targetWorker} HandleFeeProps={HandleFeeProps}/>
+              : null
+            }
 
 
-      {  targetWorker > 0 
-      ? <AttendanceRecord fees={fees} targetWorker={targetWorker} targetmonth={targetmonth}/>
-      : null
-    }
+      <Grid container>
+          <Grid item xs={12}>
+
+
+            
+            {  targetWorker > 0 
+              ? <AttendanceRecord fees={fees} targetWorker={targetWorker} targetmonth={targetmonth}/>
+              : null
+             }
+          </Grid>
+
+
+
+        </Grid>
+
+
+
+
 
 
 
