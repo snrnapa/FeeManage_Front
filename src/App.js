@@ -63,6 +63,8 @@ const App = () => {
 
   function testfunction(){
     console.log(fees);
+    console.log(reports);
+
   }
 
 
@@ -70,6 +72,7 @@ const App = () => {
 
   const HandleFeeProps = (newfees) => {
     setFees(newfees);
+
 
   }
 

@@ -57,7 +57,7 @@ const AttendanceRecord = (props) => {
 
       }
 
-    },[fee,targetmonth]);
+    },[fee,targetmonth,report]);
 
 
   return (
@@ -70,7 +70,7 @@ const AttendanceRecord = (props) => {
 
       {(() => {
         // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
-        if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined') ) {
+        if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined')) {
           // console.log(fee[0])
           return (
             <div>
