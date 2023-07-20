@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 const ApiFetch = (props) => {
 
     const [fees, setFees] = useState([]);
+    const [reports, setReports] = useState([]);
+
     const refflg = 0;
     const filtermonths = ([]);
   
@@ -22,19 +24,30 @@ const ApiFetch = (props) => {
     };
   
     
-    const GetUrl = 'http://localhost:8080/fee?id=' + props.targetWorker;
+    const FeeGetUrl = 'http://localhost:8080/fee?id=' + props.targetWorker;
+    const ReportGetUrl = 'http://localhost:8080/report?id=' + props.targetWorker;
   
     useEffect(() => {
       // fetch("http://localhost:8080/fee?id=1", { method: "GET" })
       setFees([]);
-      fetch(GetUrl, { method: "GET" })
+      setReports([]);
+      fetch(FeeGetUrl, { method: "GET" })
         .then(res => res.json())
-        .then(data => {
-            props.HandleFeeProps(data);
+        .then(feedata => {
+            props.HandleFeeProps(feedata);
+
 
       })
+
   
-  
+      fetch(ReportGetUrl, { method: "GET" })
+        .then(res => res.json())
+        .then(reportdata => {
+            props.HandleReportProps(reportdata);
+
+      })
+      
+      
   
       
       

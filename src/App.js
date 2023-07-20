@@ -18,12 +18,14 @@ import { Grid } from "@material-ui/core";
 import AttendanceRecord from "./components/AttendanceRecord";
 
 
+
 const App = () => {
 
   const [targetWorker , setTargetWorker] = useState();
   const [yearmonth , setYearmonth] = useState([]);
   const [targetmonth , setTargetmonth] = useState(null);
   const [fees , setFees] = useState();
+  const [reports, setReports] = useState([]);
 
 
 
@@ -68,6 +70,11 @@ const App = () => {
 
   const HandleFeeProps = (newfees) => {
     setFees(newfees);
+
+  }
+
+  const HandleReportProps = (newreport) => {
+    setReports(newreport);
 
   }
 
@@ -129,7 +136,7 @@ const App = () => {
       {/* workerの情報をダブルクリックすると、targetWorkerがセットされ、こちらのAPIが実行される（Fee情報をバックから取る処理） */}
 
             {  targetWorker > 0 
-              ? <ApiFetch targetWorker={targetWorker} HandleFeeProps={HandleFeeProps}/>
+              ? <ApiFetch targetWorker={targetWorker} HandleFeeProps={HandleFeeProps} HandleReportProps={HandleReportProps}/>
               : null
             }
 
@@ -140,7 +147,7 @@ const App = () => {
 
             
             {  targetWorker > 0 
-              ? <AttendanceRecord fees={fees} targetWorker={targetWorker} targetmonth={targetmonth}/>
+              ? <AttendanceRecord fees={fees} reports={reports} targetWorker={targetWorker} targetmonth={targetmonth}/>
               : null
              }
           </Grid>

@@ -7,8 +7,7 @@ import TableRow from '@mui/material/TableRow';
 import Fee from './Fee';
 import { QrCodeScannerOutlined } from '@mui/icons-material';
 import { Grid } from '@material-ui/core';
-
-
+import Report from './Report';
 
 
 const AttendanceRecord = (props) => {
@@ -16,6 +15,7 @@ const AttendanceRecord = (props) => {
     const [targetdays , setTargetdays] = useState([]);
     const days = [];
     const fee = props.fees;
+    const report = props.report;
     const targetWorker = props.targetWorker;
     const [yearmonth , setYearmonth] = useState([]);
     const targetmonth = props.targetmonth;
@@ -25,7 +25,7 @@ const AttendanceRecord = (props) => {
       
         // 現在の月の、日付をすべて出力します。
       
-      if(!(typeof fee === 'undefined') ){
+      if(!(typeof fee === 'undefined')){
 
         const d = new Date();
         console.log(targetmonth)
@@ -64,16 +64,9 @@ const AttendanceRecord = (props) => {
     <>
 
 
-
-
-
         <Grid container>
           <Grid item xs={6}>
 
-
-
-
-    
 
       {(() => {
         // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
@@ -85,6 +78,8 @@ const AttendanceRecord = (props) => {
                   <div>
                     <h2>{d}</h2>
                     <Fee fee={fee} day={d} targetWorker={targetWorker}/>
+                    <Report report={report} day={d} targetWorker={targetWorker}/>
+
 
                   </div>
                 ))}
