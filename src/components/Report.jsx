@@ -21,85 +21,25 @@ const Report = (props) => {
   const targetWorker = props.targetWorker;
 
 
-  const [alignment, setAlignment] = React.useState('web');
-
-  const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment);
-  };
-
-  
- 
-
-  
-
-
-
-  // function FilterNowMonth(){
-  //   refflg = refflg + 1;
-  //   const startday = new Date();
-  //   const endday = new Date();
-
-  //   startday.setDate(1);
-
-  //   endday.setMonth(endday.getMonth() + 1);
-  //   endday.setDate(0);
-
-  //   const Start = reports.filter((report) =>  startday.toISOString().split('T')[0] < report.use_date);
-  //   const filterdreports = Start.filter((report) =>  endday.toISOString().split('T')[0] > report.use_date);
-
-  //   setReports(filterdreports);
-  // }
-
-
-  // function FilterLastMonth(){
-  //   refflg = refflg + 1;
-
-
-
-  //   const startday = new Date();
-  //   const endday = new Date();
-
-    
-  //   startday.setMonth(startday.getMonth() - 1);
-  //   startday.setDate(1);
-  //   endday.setDate(0);
-
-
-
-  //   const Start = reports.filter((report) =>  startday.toISOString().split('T')[0] < report.use_date);
-  //   const filterdreports = Start.filter((report) =>  endday.toISOString().split('T')[0] > report.use_date);
-
-  //   setReports(filterdreports);
-  // }
-
-
-
-
-
-  const reporttestfunction = () => {
-    console.log(props.report)
-
-  
-
-  }
-
-  
-
 
 
 
   return (
     <>
+
     <Title>Report</Title>
 
-    <Button onClick={reporttestfunction}>Reportをテストするぼたんやさかい</Button>
 
     {(() => {
 
 
-      if (!(typeof targetreport === 'undefined') && !(typeof targetday === 'undefined') ) {
-        const newreport = targetreport.filter((f) => {
-          return f.use_date == targetday && f.id == targetWorker
+
+
+      if (!(typeof targetreport === 'undefined') && !(typeof targetday === 'undefined')) {
+
+
+        const newreport = targetreport.filter((repo) => {
+          return repo.id == targetWorker
         })
 
         return(
@@ -109,18 +49,16 @@ const Report = (props) => {
           <TableHead>
             <TableRow>
               <TableCell>location</TableCell>
-
               
             </TableRow>
           </TableHead>
+
           <TableBody>
-
-
           {newreport.map((result) => (
 
 
             <TableRow key={result.id}>
-              <TableCell>{result.location}</TableCell>
+              <TableCell>{result.id}</TableCell>
    
 
             </TableRow>
@@ -130,19 +68,10 @@ const Report = (props) => {
 
           </div>
 
-
-
-
-
-
         )
-
 
       }
     })()}
-
-
-
 
   </>
   );

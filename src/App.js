@@ -25,7 +25,7 @@ const App = () => {
   const [yearmonth , setYearmonth] = useState([]);
   const [targetmonth , setTargetmonth] = useState(null);
   const [fees , setFees] = useState();
-  const [reports, setReports] = useState([]);
+  const [reports, setReports] = useState();
 
 
 

@@ -15,7 +15,7 @@ const AttendanceRecord = (props) => {
     const [targetdays , setTargetdays] = useState([]);
     const days = [];
     const fee = props.fees;
-    const report = props.report;
+    const report = props.reports;
     const targetWorker = props.targetWorker;
     const [yearmonth , setYearmonth] = useState([]);
     const targetmonth = props.targetmonth;
@@ -25,13 +25,13 @@ const AttendanceRecord = (props) => {
       
         // 現在の月の、日付をすべて出力します。
       
-      if(!(typeof fee === 'undefined')){
+      if(!(typeof fee === 'undefined') && !(typeof report === 'undefined')){
+        console.log(fee.length)
+        console.log(report.length)
 
         const d = new Date();
-        console.log(targetmonth)
 
         if(!(typeof targetmonth === 'undefined') && !(targetmonth === null)){
-          console.log(targetmonth)
           d.setFullYear(targetmonth.substring(0,4));
           d.setMonth(targetmonth.substring(5,7) - 1);
 
@@ -59,9 +59,16 @@ const AttendanceRecord = (props) => {
 
     },[fee,targetmonth,report]);
 
+    const reporttest = () =>  {
+      console.log(props);
+    }
+
 
   return (
     <>
+
+
+    <Button onClick={reporttest}>レポートテストするでattendanceで</Button>
 
 
         <Grid container>
@@ -70,15 +77,17 @@ const AttendanceRecord = (props) => {
 
       {(() => {
         // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
-        if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined')) {
+        // if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined') && !(typeof report === 'undefined')) {
+        if (!(typeof targetdays === 'undefined') && !(typeof report === 'undefined')) {
+
           // console.log(fee[0])
           return (
             <div>
                 {targetdays.map((d) => (
                   <div>
                     <h2>{d}</h2>
-                    <Fee fee={fee} day={d} targetWorker={targetWorker}/>
-                    <Report report={report} day={d} targetWorker={targetWorker}/>
+                    {/* <Fee fee={fee} day={d} targetWorker={targetWorker}/> */}
+                    {/* <Report report={report} day={d} targetWorker={targetWorker}/> */}
 
 
                   </div>
