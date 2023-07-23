@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Table, ButtonGroup, CardHeader } from '@mui/material';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import { Button, Table, ButtonGroup } from '@mui/material';
+
 import Fee from './Fee';
 import { QrCodeScannerOutlined } from '@mui/icons-material';
 import { Grid } from '@material-ui/core';
 import Report from './Report';
-import Card from '@material-ui/core/Card';
-
+import { Person } from '@mui/icons-material';
+import { Card, CardHeader, Avatar } from "@material-ui/core";
+import TrainIcon from '@mui/icons-material/Train';
 
 const AttendanceRecord = (props) => {
 
@@ -94,8 +92,12 @@ const AttendanceRecord = (props) => {
 
                         <Grid item xs={6}>
                           <Card variant="outlined">
-                            <CardHeader title="Fee">
-
+                            <CardHeader title="Fee"
+                                        avatar={
+                                          <Avatar>
+                                              <TrainIcon></TrainIcon>
+                                          </Avatar>
+                                        }>
                             </CardHeader>
                             <Fee fee={fee} day={d} targetWorker={targetWorker}/>
                           </Card>
