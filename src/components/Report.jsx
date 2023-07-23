@@ -33,7 +33,7 @@ const Report = (props) => {
 
 
         const newreport = targetreport.filter((repo) => {
-          return repo.id == targetWorker
+          return repo.atdate == targetday && repo.id == targetWorker
         })
 
         return(
