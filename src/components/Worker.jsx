@@ -166,17 +166,12 @@ function preventDefault(event) {
           </Card>
         </Grid>
 
-      </Grid>
+        <Grid item xs={1}>
+          
+        </Grid>
 
 
-
-
-
-      <Grid container>
-
-
-
-        <Grid item xs={6}>
+        <Grid item xs={7}>
           <Card variant="outlined">
               <CardHeader
               subheader="ダブルクリックすると、従業員の詳細を表示します"
@@ -201,17 +196,10 @@ function preventDefault(event) {
                     />
                 </CardContent>
             </Card>
- 
+
         </Grid>
 
-
-
-
-
       </Grid>
-
-
-
 
 
 
