@@ -44,10 +44,6 @@ const InputWorker = (props) => {
 
     <>
 
-    <Title>User Input <PersonAddAltIcon fontSize='large' /> </Title>
-
-
-
 
     {/* <Button onClick={(worker) => workerinsert(props)}>送信</Button> */}
 

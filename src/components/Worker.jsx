@@ -13,6 +13,10 @@ import InputWorker from './InputWorker';
 import Dashboard from '../Dashbord';
 import { DataGrid } from '@mui/x-data-grid';
 import PersonIcon from '@mui/icons-material/Person';
+import { Avatar, Box, Card, CardContent, CardHeader, Grid } from "@material-ui/core";
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import PeopleIcon from '@mui/icons-material/People';
 
 
 function preventDefault(event) {
@@ -118,35 +122,94 @@ function preventDefault(event) {
   return (
     <>
 
+      <Grid container>
+        <Grid item xs={12}>
+          <Card variant="outlined">
+            <CardHeader
+              subheader="所属でフィルターをかけます"
+              avatar={
+                <Avatar>
+                  <FilterAltIcon></FilterAltIcon>
+                </Avatar>
+              }>
+            </CardHeader>
+             <CardContent>
+                <Filter
+                  onChange={handleFilterChange}
+                  value={filter}
+                  workers = {workers}
+                />
+
+             </CardContent>
+
+          </Card>
+        </Grid>
+      </Grid>
+
+
+      <Grid container>
+
+        <Grid item xs={4}>
+          <Card variant="outlined">
+            <CardHeader
+            subheader="従業員を追加します"
+            avatar={
+              <Avatar>
+                <PersonAddAltIcon></PersonAddAltIcon>
+              </Avatar>
+            }>
+
+            </CardHeader>
+              <CardContent>
+              <InputWorker refflg={refflg} setRefflg={setRefflg}/>
+              </CardContent>
+          </Card>
+        </Grid>
+
+      </Grid>
 
 
 
 
 
-      <InputWorker refflg={refflg} setRefflg={setRefflg}/>
-
-
-      <Filter
-        onChange={handleFilterChange}
-        value={filter}
-        workers = {workers}
-      />
-
-      <Title>UserList       <PersonIcon fontSize='large'/></Title>
+      <Grid container>
 
 
 
-      <DataGrid
-        rows={DisplayWorkers}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 7 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
-        onCellDoubleClick={(event) => ChangeTargetWorker(event)}
-      />
+        <Grid item xs={6}>
+          <Card variant="outlined">
+              <CardHeader
+              subheader="ダブルクリックすると、従業員の詳細を表示します"
+              avatar={
+                <Avatar>
+                  <PeopleIcon></PeopleIcon>
+                </Avatar>
+              }>
+
+              </CardHeader>
+                <CardContent>
+                    <DataGrid
+                      rows={DisplayWorkers}
+                      columns={columns}
+                      initialState={{
+                        pagination: {
+                          paginationModel: { page: 0, pageSize: 7 },
+                        },
+                      }}
+                      pageSizeOptions={[5, 10]}
+                      onCellDoubleClick={(event) => ChangeTargetWorker(event)}
+                    />
+                </CardContent>
+            </Card>
+ 
+        </Grid>
+
+
+
+
+
+      </Grid>
+
 
 
 
