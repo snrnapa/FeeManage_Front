@@ -25,98 +25,7 @@ const Fee = (props) => {
 
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
-  };
-
-  
- 
-
-  
-
-
-
-  // function FilterNowMonth(){
-  //   refflg = refflg + 1;
-  //   const startday = new Date();
-  //   const endday = new Date();
-
-  //   startday.setDate(1);
-
-  //   endday.setMonth(endday.getMonth() + 1);
-  //   endday.setDate(0);
-
-  //   const Start = fees.filter((fee) =>  startday.toISOString().split('T')[0] < fee.use_date);
-  //   const filterdfees = Start.filter((fee) =>  endday.toISOString().split('T')[0] > fee.use_date);
-
-  //   setFees(filterdfees);
-  // }
-
-
-  // function FilterLastMonth(){
-  //   refflg = refflg + 1;
-
-
-
-  //   const startday = new Date();
-  //   const endday = new Date();
-
-    
-  //   startday.setMonth(startday.getMonth() - 1);
-  //   startday.setDate(1);
-  //   endday.setDate(0);
-
-
-
-  //   const Start = fees.filter((fee) =>  startday.toISOString().split('T')[0] < fee.use_date);
-  //   const filterdfees = Start.filter((fee) =>  endday.toISOString().split('T')[0] > fee.use_date);
-
-  //   setFees(filterdfees);
-  // }
-
-
-
-
-
-  const feetestfunction = () => {
-  
-
-    // console.log(newTargetday);
-
-    // fees.forEach((fee) => console.log(fee))
-
-    // fees.map(f => 
-
-    //   f.filter(rf => (new Date(rf.use_date)).toLocaleDateString() === newTargetday ).forEach(rf => console.log(rf))
-        
-    //   })
-
-
-
-      // console.log((new Date(f.use_date)).toLocaleDateString())
-      
-      // )
-
-    // const newfee = fees.filter(feeresult => feeresult.use_date === newTargetday)
-    // console.log(newfee)
-    
-
-
-
-
-    // const testfees =  fees.filter((fee) => fee.use_date = newTargetday);
-
-    // console.log(testfees);
-
-    // console.log(newTargetday);
-    // console.log(fees[0].use_date);
-
-
-    // const date = new Date(fees[0].use_date);
-    // console.log(date);
-    // console.log(date.toLocaleString()); // 2022/5/5 0:00:00 <-日本標準時で出力
-
-  }
-
-  
+  };  
 
 
 
@@ -167,18 +76,11 @@ const Fee = (props) => {
 
           </div>
 
-
-
-
-
-
         )
 
 
       }
     })()}
-
-
 
 
   </>
