@@ -95,14 +95,18 @@ const AttendanceRecord = (props) => {
 
                         </Grid>
 
+                        <Grid item xs={1}>
+
+
+                        </Grid>
+
 
                         <Grid item xs={4}>
-                          <Card variant="outlined">
-                            <CardHeader title="Report">
+    
 
-                            </CardHeader>
+
                             <Report report={report} day={d} targetWorker={targetWorker}/>
-                          </Card>
+
                         </Grid>
 
 

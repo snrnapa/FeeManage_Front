@@ -61,13 +61,6 @@ const Fee = (props) => {
             
           }
           console.log(sumfee);
-
-
-
-
-
-
-
             return(
               <div>
     
@@ -112,8 +105,6 @@ const Fee = (props) => {
               </div>
     
             )
-
-
 
         }
 
