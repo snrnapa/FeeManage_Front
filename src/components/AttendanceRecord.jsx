@@ -8,6 +8,7 @@ import Fee from './Fee';
 import { QrCodeScannerOutlined } from '@mui/icons-material';
 import { Grid } from '@material-ui/core';
 import Report from './Report';
+import Card from '@material-ui/core/Card';
 
 
 const AttendanceRecord = (props) => {
@@ -70,29 +71,46 @@ const AttendanceRecord = (props) => {
 
     <Button onClick={reporttest}>レポートテストするでattendanceで</Button>
 
-
-        <Grid container>
-          <Grid item xs={6}>
-
-
       {(() => {
         // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
         if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined') && !(typeof report === 'undefined')) {
 
-          console.log(report);
-          console.log(fee);
           return (
             <div>
                 {targetdays.map((d) => (
                   <div>
-                    <h2>{d}</h2>
+                  
+                  <h2>{d}</h2>
+                  <Grid container 
+                  direction="row"
+                  alignContent="center"
+                  justifyContent="center"
+                  >
+
+                <Grid item xs={2}>
+
+
+
+                </Grid>
+
+                <Grid item xs={6}>
+                  <Card variant="outlined">
                     <Fee fee={fee} day={d} targetWorker={targetWorker}/>
-                    <Report report={report} day={d} targetWorker={targetWorker}/>
+                  </Card>
+                </Grid>
+
+                <Grid item xs={4}>
+                  <Card variant="outlined">
+                  <Report report={report} day={d} targetWorker={targetWorker}/>
+                  </Card>
+                </Grid>
 
 
-                  </div>
+
+                </Grid>
+
+                </div>
                 ))}
-
             </div>
           )
         }else{
@@ -101,8 +119,6 @@ const AttendanceRecord = (props) => {
       })()}
 
 
-    </Grid>
-  </Grid>
 
 
     </>
