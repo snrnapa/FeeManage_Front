@@ -46,49 +46,76 @@ const Fee = (props) => {
     {(() => {
 
 
-      if (!(typeof targetfee === 'undefined') && !(typeof targetday === 'undefined') ) {
+      if (!(typeof targetfee === 'undefined') && !(typeof targetday === 'undefined')) {
+   
         const newfee = targetfee.filter((f) => {
           return f.use_date == targetday && f.id == targetWorker
         })
 
-        return(
-          <div>
+        if(!(newfee == 0)){
 
-            <Card variant="outlined">
-              <CardHeader title="Fee"
-                          avatar={
-                            <Avatar>
-                                <TrainIcon></TrainIcon>
-                            </Avatar>
-                          }>
-              </CardHeader>
-              <CardContent>
-              <List component="nav">
-                  
-                  {newfee.map((result) => (
+          let sumfee = 0;
 
-                      <ListItem>
-                        <ListItemText primary={"料金:" + result.total_fee} />
+          for (let i = 0; i < newfee.length; i++) {
+            sumfee += newfee[i].total_fee;
+            
+          }
+          console.log(sumfee);
 
-                        {result.round_trip == "yes"
-                        ? <ListItemText primary={"往復"} />
-                        : <ListItemText primary={"片道"} />
-                        }
-   
-                      </ListItem>
 
+
+
+
+
+
+            return(
+              <div>
+    
+                <Card variant="outlined">
+                  <CardHeader title="Fee"
+                              avatar={
+                                <Avatar>
+                                    <TrainIcon></TrainIcon>
+                                </Avatar>
+                              }>
+                  </CardHeader>
+                  <CardContent>
+                  <List component="nav">
+    
                       
-                  ))}
+                      
+                      {newfee.map((result) => (
+    
+                          <ListItem>
+                            <ListItemText primary={"料金:" + result.total_fee} />
+    
+                            {result.round_trip == "yes"
+                            ? <ListItemText primary={"往復"} />
+                            : <ListItemText primary={"片道"} />
+                            }
 
-                </List>
 
-              </CardContent>
+        
+                          </ListItem>
+    
+                          
+                      ))}
+                      <ListItemText primary={"合計:" + sumfee} />
 
-            </Card>
+    
+                    </List>
+    
+                  </CardContent>
+    
+                </Card>
+    
+              </div>
+    
+            )
 
-          </div>
 
-        )
+
+        }
 
 
       }
