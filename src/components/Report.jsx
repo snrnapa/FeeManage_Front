@@ -20,10 +20,6 @@ const Report = (props) => {
 
   const targetWorker = props.targetWorker;
 
-
-
-
-
   return (
     <>
 
@@ -32,10 +28,8 @@ const Report = (props) => {
 
     {(() => {
 
-
-
-
       if (!(typeof targetreport === 'undefined') && !(typeof targetday === 'undefined')) {
+
 
 
         const newreport = targetreport.filter((repo) => {
@@ -49,6 +43,9 @@ const Report = (props) => {
           <TableHead>
             <TableRow>
               <TableCell>location</TableCell>
+              <TableCell>duty_time</TableCell>
+              <TableCell>rest_time</TableCell>
+
               
             </TableRow>
           </TableHead>
@@ -58,7 +55,10 @@ const Report = (props) => {
 
 
             <TableRow key={result.id}>
-              <TableCell>{result.id}</TableCell>
+              <TableCell>{result.location}</TableCell>
+              <TableCell>{result.workstart} - {result.workend} </TableCell>
+              <TableCell>{result.reststart} - {result.end}</TableCell>
+
    
 
             </TableRow>

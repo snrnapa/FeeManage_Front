@@ -77,17 +77,17 @@ const AttendanceRecord = (props) => {
 
       {(() => {
         // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
-        // if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined') && !(typeof report === 'undefined')) {
-        if (!(typeof targetdays === 'undefined') && !(typeof report === 'undefined')) {
+        if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined') && !(typeof report === 'undefined')) {
 
-          // console.log(fee[0])
+          console.log(report);
+          console.log(fee);
           return (
             <div>
                 {targetdays.map((d) => (
                   <div>
                     <h2>{d}</h2>
-                    {/* <Fee fee={fee} day={d} targetWorker={targetWorker}/> */}
-                    {/* <Report report={report} day={d} targetWorker={targetWorker}/> */}
+                    <Fee fee={fee} day={d} targetWorker={targetWorker}/>
+                    <Report report={report} day={d} targetWorker={targetWorker}/>
 
 
                   </div>
