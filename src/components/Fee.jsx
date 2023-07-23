@@ -123,9 +123,7 @@ const Fee = (props) => {
 
   return (
     <>
-    <Title>Fee</Title>
 
-    <Button onClick={feetestfunction}>Feeをテストするぼたんやさかい</Button>
 
     {(() => {
 

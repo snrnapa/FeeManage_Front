@@ -23,7 +23,6 @@ const Report = (props) => {
   return (
     <>
 
-    <Title>Report</Title>
 
 
     {(() => {
@@ -57,7 +56,7 @@ const Report = (props) => {
             <TableRow key={result.id}>
               <TableCell>{result.location}</TableCell>
               <TableCell>{result.workstart} - {result.workend} </TableCell>
-              <TableCell>{result.reststart} - {result.end}</TableCell>
+              <TableCell>{result.reststart} - {result.restend}</TableCell>
 
    
 

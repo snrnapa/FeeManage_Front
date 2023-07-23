@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Table, ButtonGroup } from '@mui/material';
+import { Button, Table, ButtonGroup, CardHeader } from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
@@ -79,36 +79,42 @@ const AttendanceRecord = (props) => {
             <div>
                 {targetdays.map((d) => (
                   <div>
-                  
-                  <h2>{d}</h2>
-                  <Grid container 
-                  direction="row"
-                  alignContent="center"
-                  justifyContent="center"
-                  >
 
-                <Grid item xs={2}>
-
-
-
-                </Grid>
-
-                <Grid item xs={6}>
                   <Card variant="outlined">
-                    <Fee fee={fee} day={d} targetWorker={targetWorker}/>
+                    <CardHeader title={d} subheader="入力OK or 入力NG">
+
+                    </CardHeader>
+
+                      <Grid container 
+                        direction="row"
+                        alignContent="center"
+                        justifyContent="center"
+                      >
+
+
+                        <Grid item xs={6}>
+                          <Card variant="outlined">
+                            <CardHeader title="Fee">
+
+                            </CardHeader>
+                            <Fee fee={fee} day={d} targetWorker={targetWorker}/>
+                          </Card>
+                        </Grid>
+
+
+                        <Grid item xs={4}>
+                          <Card variant="outlined">
+                            <CardHeader title="Report">
+
+                            </CardHeader>
+                            <Report report={report} day={d} targetWorker={targetWorker}/>
+                          </Card>
+                        </Grid>
+
+
+                      </Grid>
                   </Card>
-                </Grid>
-
-                <Grid item xs={4}>
-                  <Card variant="outlined">
-                  <Report report={report} day={d} targetWorker={targetWorker}/>
-                  </Card>
-                </Grid>
-
-
-
-                </Grid>
-
+       
                 </div>
                 ))}
             </div>
