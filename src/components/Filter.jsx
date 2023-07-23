@@ -16,6 +16,8 @@ export const Filter = (props) => {
     onChange(key);
   }
 
+
+
   useEffect(() => {
 
     let deptlist = [];
@@ -44,8 +46,6 @@ export const Filter = (props) => {
   return (
     <>
 
-<Title>Filter <FilterAltIcon fontSize="large"/></Title>
-
 
       <ButtonGroup>
 
@@ -55,7 +55,7 @@ export const Filter = (props) => {
 
       </ButtonGroup>
 
-      <Button onClick={distincttest}>distinct</Button>
+      <Button onClick={() => handleClick("ALL")}> Clear </Button>
 
     </>
   )
