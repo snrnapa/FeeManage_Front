@@ -1,11 +1,4 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import Link from '@mui/material/Link';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Title from './Title';
 import Typography from "@mui/material/Typography";
 import TrainIcon from '@mui/icons-material/Train';
 
@@ -14,10 +7,6 @@ import {
   CardHeader,
   Avatar,
   CardContent,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Divider,
 } from "@material-ui/core";
 
@@ -38,14 +27,9 @@ const Fee = (props) => {
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };  
-
   return (
     <>
-
-
     {(() => {
-
-
       if (!(typeof targetfee === 'undefined') && !(typeof targetday === 'undefined')) {
    
         const newfee = targetfee.filter((f) => {
@@ -72,34 +56,26 @@ const Fee = (props) => {
                                 </Avatar>
                               }>
                   </CardHeader>
-                  <CardContent>
-                  <List component="nav">
-    
-                      
-                      
+                    <CardContent>
+
                       {newfee.map((result) => (
-    
-                          <ListItem>
-                            <ListItemText primary={"料金:" + result.total_fee} />
-    
+                        <div>
+                          <Typography variant="h6" color="textSecondary">
+                            {"料金:" + result.total_fee + "円   "}
                             {result.round_trip == "yes"
-                            ? <ListItemText primary={"往復"} />
-                            : <ListItemText primary={"片道"} />
-                            }
-
-
-        
-                          </ListItem>
-    
-                          
+                              ? "往復"
+                              : "片道"
+                          }
+                          </Typography>
+                        </div>
                       ))}
-                      <ListItemText primary={"合計:" + sumfee} />
+                      <Divider />
+                      <Typography variant="h6" color="primary">
+                        {"合計   " + sumfee + "円"}
+                      </Typography>
 
-    
-                    </List>
-    
-                  </CardContent>
-    
+                    </CardContent>
+      
                 </Card>
     
               </div>
