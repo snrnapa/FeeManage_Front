@@ -5,7 +5,6 @@ import Fee from './Fee';
 import { QrCodeScannerOutlined } from '@mui/icons-material';
 import { Grid } from '@material-ui/core';
 import Report from './Report';
-import { Person } from '@mui/icons-material';
 import { Card, CardHeader, Avatar } from "@material-ui/core";
 import TrainIcon from '@mui/icons-material/Train';
 
@@ -91,16 +90,9 @@ const AttendanceRecord = (props) => {
 
 
                         <Grid item xs={6}>
-                          <Card variant="outlined">
-                            <CardHeader title="Fee"
-                                        avatar={
-                                          <Avatar>
-                                              <TrainIcon></TrainIcon>
-                                          </Avatar>
-                                        }>
-                            </CardHeader>
+
                             <Fee fee={fee} day={d} targetWorker={targetWorker}/>
-                          </Card>
+
                         </Grid>
 
 

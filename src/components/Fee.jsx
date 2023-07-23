@@ -6,10 +6,22 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from './Title';
-import { Button, ButtonBase, Input, Select } from '@mui/material';
-import { ButtonGroup } from "@mui/material";
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import Typography from "@mui/material/Typography";
+import TrainIcon from '@mui/icons-material/Train';
+
+import {
+  Card,
+  CardHeader,
+  Avatar,
+  CardContent,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+} from "@material-ui/core";
+
+
 
 
 const Fee = (props) => {
@@ -27,9 +39,6 @@ const Fee = (props) => {
     setAlignment(newAlignment);
   };  
 
-
-
-
   return (
     <>
 
@@ -45,34 +54,37 @@ const Fee = (props) => {
         return(
           <div>
 
-          <Table size="small" >
-          <TableHead>
-            <TableRow>
-              <TableCell>UserID</TableCell>
-              <TableCell>Fee_seq</TableCell>
-              <TableCell>Round_trip</TableCell>
-              <TableCell>total_fee</TableCell>
-              <TableCell>use_date</TableCell>
-              
-            </TableRow>
-          </TableHead>
-          <TableBody>
+            <Card variant="outlined">
+              <CardHeader title="Fee"
+                          avatar={
+                            <Avatar>
+                                <TrainIcon></TrainIcon>
+                            </Avatar>
+                          }>
+              </CardHeader>
+              <CardContent>
+              <List component="nav">
+                  
+                  {newfee.map((result) => (
 
+                      <ListItem>
+                        <ListItemText primary={"料金:" + result.total_fee} />
 
-          {newfee.map((result) => (
+                        {result.round_trip == "yes"
+                        ? <ListItemText primary={"往復"} />
+                        : <ListItemText primary={"片道"} />
+                        }
+   
+                      </ListItem>
 
+                      
+                  ))}
 
-            <TableRow key={result.id}>
-              <TableCell>{result.id}</TableCell>
-              <TableCell>{result.fee_seq}</TableCell>
-              <TableCell>{result.round_trip}</TableCell>
-              <TableCell>{result.total_fee}</TableCell>
-              <TableCell>{result.use_date}</TableCell>
+                </List>
 
-            </TableRow>
-          ))}
-          </TableBody>
-          </Table>
+              </CardContent>
+
+            </Card>
 
           </div>
 
