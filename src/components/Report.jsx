@@ -1,15 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import Link from '@mui/material/Link';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Title from './Title';
-import { Button, ButtonBase, Input, Select } from '@mui/material';
-import { ButtonGroup } from "@mui/material";
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+
 import WorkIcon from '@mui/icons-material/Work';
 
 import {
@@ -17,12 +7,8 @@ import {
   CardHeader,
   Avatar,
   CardContent,
-  Typography,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Divider,
+  Typography
+
 } from "@material-ui/core";
 
 
@@ -50,9 +36,6 @@ const Report = (props) => {
         })
 
         return(
-
-
-
           <div>
     
               <Card variant="outlined">
@@ -65,8 +48,6 @@ const Report = (props) => {
                 </CardHeader>
                         {newreport.map((result) => (
                   <CardContent>
-                          
-
                       <Typography variant="h5" color="primary">
                         {result.location}
                       </Typography>
@@ -84,46 +65,11 @@ const Report = (props) => {
                     </CardContent>
                         ))}
  
-
-
               </Card>
 
           </div>
 
 
-
-
-
-          // <div>
-
-          // <Table size="small" >
-          // <TableHead>
-          //   <TableRow>
-          //     <TableCell>location</TableCell>
-          //     <TableCell>duty_time</TableCell>
-          //     <TableCell>rest_time</TableCell>
-
-              
-          //   </TableRow>
-          // </TableHead>
-
-          // <TableBody>
-          // {newreport.map((result) => (
-
-
-          //   <TableRow key={result.id}>
-          //     <TableCell>{result.location}</TableCell>
-          //     <TableCell>{result.workstart} - {result.workend} </TableCell>
-          //     <TableCell>{result.reststart} - {result.restend}</TableCell>
-
-   
-
-          //   </TableRow>
-          // ))}
-          // </TableBody>
-          // </Table>
-
-          // </div>
 
         )
 
