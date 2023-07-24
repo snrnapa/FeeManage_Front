@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/FeeManage_Front/static/css/main.073c9b0a.css",
+    "main.js": "/FeeManage_Front/static/js/main.98c80ed0.js",
+    "index.html": "/FeeManage_Front/index.html",
+    "main.073c9b0a.css.map": "/FeeManage_Front/static/css/main.073c9b0a.css.map",
+    "main.98c80ed0.js.map": "/FeeManage_Front/static/js/main.98c80ed0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.98c80ed0.js"
+  ]
+}

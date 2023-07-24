@@ -3,7 +3,7 @@
   "name": "feemanage-front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://<snrnapa>.github.io/FeeManage_Front/",
+  "homepage": "https://snrnapa.github.io/FeeManage_Front/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
