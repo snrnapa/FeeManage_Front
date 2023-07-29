@@ -6,6 +6,8 @@ const ApiFetch = (props) => {
 
     const [fees, setFees] = useState([]);
     const [reports, setReports] = useState([]);
+    const [efforts, setEfforts] = useState([]);
+
 
     const refflg = 0;
     const filtermonths = ([]);
@@ -26,20 +28,26 @@ const ApiFetch = (props) => {
     
     const FeeGetUrl = 'http://localhost:8080/fee?id=' + props.targetWorker;
     const ReportGetUrl = 'http://localhost:8080/report?id=' + props.targetWorker;
+    const EffortGetUrl = 'http://localhost:8080/effort?id=' + props.targetWorker;
+
   
     useEffect(() => {
       // fetch("http://localhost:8080/fee?id=1", { method: "GET" })
       setFees([]);
       setReports([]);
+      setEfforts([]);
+
+
+      // Feeを取得するJsonをバックエンドのAPIに送信して、値を取得する。
+
       fetch(FeeGetUrl, { method: "GET" })
         .then(res => res.json())
         .then(feedata => {
             props.HandleFeeProps(feedata);
 
-
       })
 
-  
+      // Report（出勤管理）を取得するJsonをバックエンドのAPIに送信して、値を取得する。
       fetch(ReportGetUrl, { method: "GET" })
         .then(res => res.json())
         .then(reportdata => {
@@ -48,7 +56,13 @@ const ApiFetch = (props) => {
       })
       
       
-  
+        // Effort（工数）を取得するJsonをバックエンドのAPIに送信して、値を取得する。
+        fetch(EffortGetUrl, { method: "GET" })
+        .then(res => res.json())
+        .then(effortdate => {
+            props.HandleEffortProps(effortdate);
+
+      })
       
       
   },[props.targetWorker, refflg]);

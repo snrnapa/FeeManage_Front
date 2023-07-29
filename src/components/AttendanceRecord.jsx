@@ -7,6 +7,7 @@ import { Grid } from '@material-ui/core';
 import Report from './Report';
 import { Card, CardHeader, Avatar } from "@material-ui/core";
 import TrainIcon from '@mui/icons-material/Train';
+import Effort from './Effort';
 
 const AttendanceRecord = (props) => {
 
@@ -14,18 +15,21 @@ const AttendanceRecord = (props) => {
     const days = [];
     const fee = props.fees;
     const report = props.reports;
+    const effort = props.efforts;
     const targetWorker = props.targetWorker;
     const [yearmonth , setYearmonth] = useState([]);
     const targetmonth = props.targetmonth;
 
     useEffect(() => {
-
-      
         // 現在の月の、日付をすべて出力します。
       
+      // if(!(typeof fee === 'undefined') && !(typeof report === 'undefined') && !(typeof effort === 'undefined')){
       if(!(typeof fee === 'undefined') && !(typeof report === 'undefined')){
-        console.log(fee.length)
-        console.log(report.length)
+
+        // console.log(fee.length)
+        // console.log(report.length)
+        console.log(props.efforts)
+
 
         const d = new Date();
 
@@ -55,7 +59,7 @@ const AttendanceRecord = (props) => {
 
       }
 
-    },[fee,targetmonth,report]);
+    },[fee,targetmonth,report,effort]);
 
     const reporttest = () =>  {
       console.log(props);
@@ -70,7 +74,12 @@ const AttendanceRecord = (props) => {
 
       {(() => {
         // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
-        if (!(typeof fee === 'undefined') && !(typeof targetdays === 'undefined') && !(typeof report === 'undefined')) {
+        if (
+          !(typeof fee === 'undefined') && 
+          !(typeof targetdays === 'undefined') && 
+          !(typeof report === 'undefined') && 
+          !(typeof effort === 'undefined')
+          ) {
 
           return (
             <div>
@@ -89,24 +98,20 @@ const AttendanceRecord = (props) => {
                       >
 
 
-                        <Grid item xs={6}>
+                        <Grid item xs={2}>
 
                             <Fee fee={fee} day={d} targetWorker={targetWorker}/>
-
                         </Grid>
 
                         <Grid item xs={1}>
-
-
                         </Grid>
 
-
                         <Grid item xs={4}>
-    
-
-
                             <Report report={report} day={d} targetWorker={targetWorker}/>
-
+                        </Grid>
+                        
+                        <Grid item xs={4}>
+                            <Effort effort={effort} day={d} targetWorker={targetWorker}/>
                         </Grid>
 
 
