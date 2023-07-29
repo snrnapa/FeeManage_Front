@@ -33,9 +33,7 @@ const ApiFetch = (props) => {
   
     useEffect(() => {
       // fetch("http://localhost:8080/fee?id=1", { method: "GET" })
-      setFees([]);
-      setReports([]);
-      setEfforts([]);
+
 
 
       // Feeを取得するJsonをバックエンドのAPIに送信して、値を取得する。
@@ -64,14 +62,9 @@ const ApiFetch = (props) => {
 
       })
       
-      
   },[props.targetWorker, refflg]);
 
 
-
-  return (
-    <div>ApiFetch</div>
-  )
 }
 
 export default ApiFetch
