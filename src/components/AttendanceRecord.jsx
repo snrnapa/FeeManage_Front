@@ -102,13 +102,17 @@ const AttendanceRecord = (props) => {
 
                             <Fee fee={fee} day={d} targetWorker={targetWorker}/>
                         </Grid>
-
+                        {/* 幅調整用に追加した */}
                         <Grid item xs={1}>
                         </Grid>
 
                         <Grid item xs={4}>
                             <Report report={report} day={d} targetWorker={targetWorker}/>
                         </Grid>
+                        {/* 幅調整用に追加した */}
+                        <Grid item xs={1}>
+                        </Grid>
+                        
                         
                         <Grid item xs={4}>
                             <Effort effort={effort} day={d} targetWorker={targetWorker}/>
