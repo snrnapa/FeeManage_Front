@@ -106,7 +106,7 @@ const AttendanceRecord = (props) => {
                         <Grid item xs={1}>
                         </Grid>
 
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <Report report={report} day={d} targetWorker={targetWorker}/>
                         </Grid>
                         {/* 幅調整用に追加した */}
@@ -114,7 +114,7 @@ const AttendanceRecord = (props) => {
                         </Grid>
                         
                         
-                        <Grid item xs={4}>
+                        <Grid item xs={5}>
                             <Effort effort={effort} day={d} targetWorker={targetWorker}/>
                         </Grid>
 

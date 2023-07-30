@@ -10,6 +10,7 @@ import {
   Typography
 
 } from "@material-ui/core";
+import { Button } from "@mui/material";
 
 
 const Effort = (props) => {
@@ -19,6 +20,13 @@ const Effort = (props) => {
   const targetday = props.day;
 
   const targetWorker = props.targetWorker;
+
+  const testeffort = () => {
+    targeteffort.map((test) => {
+      console.log(test);
+    })
+    // console.log(targeteffort);
+  }
 
   return (
     <>
@@ -34,6 +42,10 @@ const Effort = (props) => {
 
         return(
           <div>
+
+            <Button onClick={testeffort}>effortをテストするがな</Button>
+
+            
     
               <Card variant="outlined">
                 <CardHeader title="Effort"
@@ -46,11 +58,24 @@ const Effort = (props) => {
                         {neweffort.map((result) => (
                   <CardContent>
                       <Typography variant="h5" color="primary">
-                        {result.projno}
+                        {"作業時間  " + result.workstart + " ~ " + result.workend}
                       </Typography>
 
-                      <Typography variant="h6" color="textSecondary">
-                        {"作業時間  " + result.workstart + " ~ " + result.workend}
+
+
+                      <Typography variant="h7" color="textSecondary">
+                        {"プロジェクト " + result.projno + " : " + result.projectname}
+                      </Typography>
+
+
+                      <Typography variant="h7" color="textSecondary">
+                        {"お客様情報 " + result.customerid + " : " + result.customername}
+                      </Typography>
+
+
+
+                      <Typography variant="h7" color="textSecondary">
+                        {"PL  " + result.leaderid + " : " + result.leadername}
 
                       </Typography>
 
