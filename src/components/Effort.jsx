@@ -21,12 +21,6 @@ const Effort = (props) => {
 
   const targetWorker = props.targetWorker;
 
-  const testeffort = () => {
-    targeteffort.map((test) => {
-      console.log(test);
-    })
-    // console.log(targeteffort);
-  }
 
   return (
     <>
@@ -43,7 +37,6 @@ const Effort = (props) => {
         return(
           <div>
 
-            <Button onClick={testeffort}>effortをテストするがな</Button>
 
             
     
@@ -57,30 +50,38 @@ const Effort = (props) => {
                 </CardHeader>
                         {neweffort.map((result) => (
                   <CardContent>
-                      <Typography variant="h5" color="primary">
+                      <Typography variant="h6" color="primary">
                         {"作業時間  " + result.workstart + " ~ " + result.workend}
                       </Typography>
 
 
 
-                      <Typography variant="h7" color="textSecondary">
-                        {"プロジェクト " + result.projno + " : " + result.projectname}
+
+                      <Typography variant="h7" color="primary">
+                        {result.projno + " : " + result.projectname}
                       </Typography>
 
+                      <br></br>
 
-                      <Typography variant="h7" color="textSecondary">
-                        {"お客様情報 " + result.customerid + " : " + result.customername}
+
+                      <Typography variant="h7" color="inherit">
+                        {result.customerid + " : " + result.customername}
                       </Typography>
 
+                      <br></br>
 
 
-                      <Typography variant="h7" color="textSecondary">
+
+
+                      <Typography variant="h7" color="inherit">
                         {"PL  " + result.leaderid + " : " + result.leadername}
 
                       </Typography>
 
-
                     </CardContent>
+
+
+
                         ))}
  
               </Card>
