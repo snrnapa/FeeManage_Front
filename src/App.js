@@ -25,6 +25,7 @@ const App = () => {
   const [targetmonth , setTargetmonth] = useState(null);
   const [fees , setFees] = useState();
   const [reports, setReports] = useState();
+  const [efforts, setEfforts] = useState();
 
 
 
@@ -77,6 +78,11 @@ const App = () => {
 
   const HandleReportProps = (newreport) => {
     setReports(newreport);
+
+  }
+
+  const HandleEffortProps = (neweffort) => {
+    setEfforts(neweffort);
 
   }
 
@@ -140,7 +146,7 @@ const App = () => {
       {/* workerの情報をダブルクリックすると、targetWorkerがセットされ、こちらのAPIが実行される（Fee情報をバックから取る処理） */}
 
             {  targetWorker > 0 
-              ? <ApiFetch targetWorker={targetWorker} HandleFeeProps={HandleFeeProps} HandleReportProps={HandleReportProps}/>
+              ? <ApiFetch targetWorker={targetWorker} HandleFeeProps={HandleFeeProps} HandleReportProps={HandleReportProps} HandleEffortProps={HandleEffortProps}/>
               : null
             }
 
@@ -151,7 +157,7 @@ const App = () => {
 
             
             {  targetWorker > 0 
-              ? <AttendanceRecord fees={fees} reports={reports} targetWorker={targetWorker} targetmonth={targetmonth}/>
+              ? <AttendanceRecord fees={fees} reports={reports} efforts={efforts} targetWorker={targetWorker} targetmonth={targetmonth}/>
               : null
              }
           </Grid>
