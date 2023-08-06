@@ -7,9 +7,11 @@ import {
   CardHeader,
   Avatar,
   CardContent,
-  Typography
+  Typography,
+  Input
 
 } from "@material-ui/core";
+import { Button } from "@mui/material";
 
 
 const Report = (props) => {
@@ -20,9 +22,20 @@ const Report = (props) => {
 
   const targetWorker = props.targetWorker;
 
+  const [editflg , setEditflg] = useState(false);
+
+
+  const testonclick = (e) => {
+
+    const targeteditflg = editflg;
+
+
+    setEditflg(!targeteditflg);
+    console.log(editflg)
+  }
+
   return (
     <>
-
 
 
     {(() => {
@@ -48,19 +61,42 @@ const Report = (props) => {
                 </CardHeader>
                         {newreport.map((result) => (
                   <CardContent>
-                      <Typography variant="h5" color="primary">
+                      {/* <Typography variant="h5" color="primary">
                         {result.location}
-                      </Typography>
+                      </Typography> */}
+                        <Button onClick={() => testonclick(result)}>
 
+                          <Typography variant="h5" color="primary">
+                            {result.location}
+                          </Typography>
+
+
+                        </Button>
+                        
                       <Typography variant="h6" color="textSecondary">
-                        {"勤務時間  " + result.workstart + " ~ " + result.workend}
+                        {result.workstart + " ~ " + result.workend}
 
                       </Typography>
 
-                      <Typography variant="h6" color="textSecondary">
+                      <Typography variant="h6" color="textSecondary" >
 
-                         {"休憩時間  " + result.reststart + " ~ " + result.restend}
+                         {"(" + result.reststart + " ~ " + result.restend + ")"}
                       </Typography>
+
+                          <div>
+                            { editflg ?
+                            <div>
+                              <Input id="location" name="location" placeholder={result.location} />
+                              <Input id="workstart" name="workstart" placeholder={"workstart: " + result.workstart} />
+                              <Input id="workend" name="workend" placeholder={"workend: " + result.workend}/>
+                              <Input id="reststart" name="reststart" placeholder={"reststart: " + result.reststart} />
+                              <Input id="restend" name="restend" placeholder={"restend: " + result.restend} />
+
+                            </div>
+                            : null }
+                          </div>
+
+
 
                     </CardContent>
                         ))}
