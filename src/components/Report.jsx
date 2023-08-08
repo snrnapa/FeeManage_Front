@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 
 import WorkIcon from '@mui/icons-material/Work';
 
@@ -8,13 +8,15 @@ import {
   Avatar,
   CardContent,
   Typography,
-  Input
+  Input,
+  ButtonBase
 
 } from "@material-ui/core";
 import { Button } from "@mui/material";
 
 
 const Report = (props) => {
+
 
   const targetreport = props.report;
 
@@ -23,6 +25,14 @@ const Report = (props) => {
   const targetWorker = props.targetWorker;
 
   const [editflg , setEditflg] = useState(false);
+
+  const idRef = useRef(null);
+  const atdateRef = useRef(null);
+  const locationRef = useRef(null);
+  const workstartRef = useRef(null);
+  const workendRef = useRef(null);
+  const reststartRef = useRef(null);
+  const restendRef = useRef(null);;
 
 
   const testonclick = (e) => {
@@ -33,6 +43,28 @@ const Report = (props) => {
     setEditflg(!targeteditflg);
     console.log(editflg)
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const requestOptions ={
+        method: 'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            id: idRef.current.value,
+            atdate: atdateRef.current.value,
+            location: locationRef.current.value,
+            workstart: workstartRef.current.value,
+            workend: workendRef.current.value,
+            reststart: reststartRef.current.value,
+            restend: restendRef.current.value
+
+        })
+
+        };
+        fetch('http://localhost:8080/report',requestOptions)
+
+    }
 
   return (
     <>
@@ -86,11 +118,16 @@ const Report = (props) => {
                           <div>
                             { editflg ?
                             <div>
-                              <Input id="location" name="location" placeholder={result.location} />
-                              <Input id="workstart" name="workstart" placeholder={"workstart: " + result.workstart} />
-                              <Input id="workend" name="workend" placeholder={"workend: " + result.workend}/>
-                              <Input id="reststart" name="reststart" placeholder={"reststart: " + result.reststart} />
-                              <Input id="restend" name="restend" placeholder={"restend: " + result.restend} />
+                              <form onSubmit={handleSubmit}>
+                                <Input  inputRef={idRef} value={targetWorker} />
+                                <Input  inputRef={atdateRef} value={targetday}/>
+                                <Input id="location" name="location" placeholder={result.location} inputRef={locationRef} />
+                                <Input id="workstart" name="workstart" placeholder={"workstart: " + result.workstart} inputRef={workstartRef} />
+                                <Input id="workend" name="workend" placeholder={"workend: " + result.workend} inputRef={workendRef}/>
+                                <Input id="reststart" name="reststart" placeholder={"reststart: " + result.reststart} inputRef={reststartRef} />
+                                <Input id="restend" name="restend" placeholder={"restend: " + result.restend} inputRef={restendRef}/>
+                                <Button type="submit">Update</Button> 
+                              </form>
 
                             </div>
                             : null }
