@@ -12,7 +12,8 @@ import {
   ButtonBase
 
 } from "@material-ui/core";
-import { Button } from "@mui/material";
+import { Button, InputBase } from "@mui/material";
+import { Label } from "@mui/icons-material";
 
 
 const Report = (props) => {
@@ -119,13 +120,15 @@ const Report = (props) => {
                             { editflg ?
                             <div>
                               <form onSubmit={handleSubmit}>
-                                <Input  inputRef={idRef} value={targetWorker} />
-                                <Input  inputRef={atdateRef} value={targetday}/>
+
+
+                                <Input  type="hidden" inputRef={idRef} value={targetWorker} />
+                                <Input  type="hidden" inputRef={atdateRef} value={targetday}/>
                                 <Input id="location" name="location" placeholder={result.location} inputRef={locationRef} />
-                                <Input id="workstart" name="workstart" placeholder={"workstart: " + result.workstart} inputRef={workstartRef} />
-                                <Input id="workend" name="workend" placeholder={"workend: " + result.workend} inputRef={workendRef}/>
-                                <Input id="reststart" name="reststart" placeholder={"reststart: " + result.reststart} inputRef={reststartRef} />
-                                <Input id="restend" name="restend" placeholder={"restend: " + result.restend} inputRef={restendRef}/>
+                                <Input id="workstart" name="workstart" value={result.workstart} inputRef={workstartRef} />
+                                <Input id="workend" name="workend" value={result.workend} inputRef={workendRef}/>
+                                <Input id="reststart" name="reststart" value={result.restend} inputRef={reststartRef} />
+                                <Input id="restend" name="restend" value={result.restend} inputRef={restendRef}/>
                                 <Button type="submit">Update</Button> 
                               </form>
 
