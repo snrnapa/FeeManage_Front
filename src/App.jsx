@@ -66,65 +66,71 @@ const App = () => {
   }
 
   return (
-    <>
-      <Card variant="outlined">
-        <Title>
-          <CenterFocusStrongIcon fontSize="large" />
-          Selected : {targetmonth}{' '}
-        </Title>
-        <Button onClick={testfunction}>ぼたんやで</Button>
-
-        {!(typeof yearmonth === 'undefined') ? (
-          <ToggleButtonGroup
-            color="primary"
-            value={alignment}
-            exclusive
-            onChange={handleChange}
-            aria-label="Platform"
-          >
-            {yearmonth.map((y) => (
-              <ToggleButton value={y} onClick={() => HandleTargetMonth({ y })}>
-                {y}
-              </ToggleButton>
-            ))}
-          </ToggleButtonGroup>
-        ) : null}
-      </Card>
-
-      <hr />
-
-      <Card variant="outlined">
-        <CardHeader></CardHeader>
-        <Worker HandleTargetWorker={HandleTargetWorker} />
-      </Card>
-
-      <hr />
-
-      {/* workerの情報をダブルクリックすると、targetWorkerがセットされ、こちらのAPIが実行される（Fee情報をバックから取る処理） */}
-
-      {targetWorker > 0 ? (
-        <ApiFetch
-          targetWorker={targetWorker}
-          HandleFeeProps={HandleFeeProps}
-          HandleReportProps={HandleReportProps}
-          HandleEffortProps={HandleEffortProps}
-        />
-      ) : null}
-
+    <div>
       <Grid container>
         <Grid item xs={12}>
-          {targetWorker > 0 ? (
-            <AttendanceRecord
-              fees={fees}
-              reports={reports}
-              efforts={efforts}
-              targetWorker={targetWorker}
-              targetmonth={targetmonth}
-            />
-          ) : null}
+          <Card variant="outlined">
+            <Title>
+              <CenterFocusStrongIcon fontSize="large" />
+              Selected : {targetmonth}{' '}
+            </Title>
+            <Button onClick={testfunction}>ぼたんやで</Button>
+
+            {!(typeof yearmonth === 'undefined') ? (
+              <ToggleButtonGroup
+                color="primary"
+                value={alignment}
+                exclusive
+                onChange={handleChange}
+                aria-label="Platform"
+              >
+                {yearmonth.map((y) => (
+                  <ToggleButton
+                    value={y}
+                    onClick={() => HandleTargetMonth({ y })}
+                  >
+                    {y}
+                  </ToggleButton>
+                ))}
+              </ToggleButtonGroup>
+            ) : null}
+          </Card>
+        </Grid>
+
+        <Grid container>
+          <Grid item xs={12}>
+            <Card variant="outlined">
+              <CardHeader></CardHeader>
+              <Worker HandleTargetWorker={HandleTargetWorker} />
+            </Card>
+            <hr />
+            {/* workerの情報をダブルクリックすると、targetWorkerがセットされ、こちらのAPIが実行される（Fee情報をバックから取る処理） */}
+            {targetWorker > 0 ? (
+              <ApiFetch
+                targetWorker={targetWorker}
+                HandleFeeProps={HandleFeeProps}
+                HandleReportProps={HandleReportProps}
+                HandleEffortProps={HandleEffortProps}
+              />
+            ) : null}
+          </Grid>
+        </Grid>
+
+        <Grid container>
+          <Grid item xs={12}>
+            {targetWorker > 0 ? (
+              <AttendanceRecord
+                fees={fees}
+                reports={reports}
+                efforts={efforts}
+                targetWorker={targetWorker}
+                targetmonth={targetmonth}
+              />
+            ) : null}
+          </Grid>
         </Grid>
       </Grid>
-    </>
+    </div>
   )
 }
 
