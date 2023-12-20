@@ -1,17 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
 
-import Dashboard from "./Dashbord";
-import Fee from "./components/Fee";
+import Dashboard from './Dashbord'
+import Fee from './components/Fee'
+import App from './App'
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   // <React.StrictMode>
-    <>
-
-      <Dashboard />
-    
-    </>
+  <>
+    <App />
+    {/* <Dashboard /> */}
+  </>
   //  </React.StrictMode>
-);
+)
