@@ -1,12 +1,18 @@
 # FeeManage_Front
 
+## Getting Started
+
+Prettier
+yarn add --dev --exact prettier
+
 ## システム概要
 
 - 従業員ごとの交通費、出勤記録、工数についてを、一元管理するためのアプリ
 - バックエンドはJava（SpringBoot）。別プロジェクトのため、以下リポジトリを参照。
-  - https://github.com/snrnapa/FeeManage.git 
+  - https://github.com/snrnapa/FeeManage.git
 
 ## こだわったポイント
+
 - ページ遷移（ページの全リロード）によるストレスをなくすためにSPAにした（react)
 - 直感的に見やすいように、レイアウトはグリッドで１２分割にした
 - 月ごとのfilterは上記に12ヶ月分が自動生成されるようにした。
@@ -17,9 +23,6 @@
   - 例 7/2は18時まで勤務になってるのに、18-19時の工数が記載されているな。。。
 
 ![](2023-07-30-22-21-30.png)
-
-
-
 
 ## 使用してるフレームワーク
 
