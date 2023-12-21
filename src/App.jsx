@@ -8,6 +8,7 @@ import AttendanceRecord from './components/AttendanceRecord'
 import Worker from './components/Worker'
 
 import MonthSelector from './pages/MonthSelector'
+import Header from './components/Header'
 
 const App = () => {
   const [targetWorker, setTargetWorker] = useState()
@@ -54,13 +55,14 @@ const App = () => {
 
   return (
     <div>
+      <Header />
       <h2>
         Selected Month:{' '}
         {targetMonth === null ? 'Non Selected Month' : targetMonth}{' '}
       </h2>
 
       <Grid container>
-        <Grid item xs={12}>
+        <Grid item xs={5}>
           <MonthSelector
             handleTargetMonth={handleTargetMonth}
             yearMonth={yearMonth}
