@@ -16,42 +16,35 @@ const AttendanceRecord = (props) => {
   const report = props.reports
   const effort = props.efforts
   const targetWorker = props.targetWorker
-  const [yearmonth, setYearmonth] = useState([])
   const targetMonth = props.targetMonth
 
+  // 現在の月の、日付をすべて出力します。
   useEffect(() => {
-    // 現在の月の、日付をすべて出力します。
-
     if (
       !(typeof fee === 'undefined') &&
       !(typeof report === 'undefined') &&
-      !(typeof effort === 'undefined')
+      !(typeof effort === 'undefined') &&
+      !(typeof targetMonth === 'undefined') &&
+      !(targetMonth === null)
     ) {
-      // if (!(typeof fee === 'undefined') && !(typeof report === 'undefined')) {
-      // console.log(fee.length)
-      // console.log(report.length)
-
       const d = new Date()
-
-      if (!(typeof targetMonth === 'undefined') && !(targetMonth === null)) {
-        d.setFullYear(targetMonth.substring(0, 4))
-        d.setMonth(targetMonth.substring(5, 7) - 1)
-      }
-
+      // 現在のtargetMonthをDateオブジェクトとして作成
+      d.setFullYear(targetMonth.substring(0, 4))
+      d.setMonth(targetMonth.substring(5, 7) - 1)
       d.setDate(1)
+
+      //現在のtargetMonthより、その月の最終日を取得
       let end = new Date(targetMonth)
       let endmonth = end.getMonth() + 1
-      const dates = new Object()
 
+      //現在のtargetMonthの月の日付を作成し、targetDaysに追加していく
       while (d.getMonth() != endmonth) {
         days.push(new Date(d).toISOString().substring(0, 10))
-        console.log(days)
         d.setDate(d.getDate() + 1)
-        console.log(d)
       }
       setTargetdays(days)
     } else {
-      // 処理を何も行わない
+      // propsのどれかが反映されてなければすべて処理を行わない
     }
   }, [fee, targetMonth, report, effort])
 

@@ -12,7 +12,7 @@ import MonthSelector from './pages/MonthSelector'
 const App = () => {
   const [targetWorker, setTargetWorker] = useState()
   const [yearMonth, setYearMonth] = useState([])
-  const [targetMonth, setTargetMonth] = useState('None Selected')
+  const [targetMonth, setTargetMonth] = useState(null)
   const [fees, setFees] = useState()
   const [reports, setReports] = useState()
   const [efforts, setEfforts] = useState()
@@ -54,7 +54,11 @@ const App = () => {
 
   return (
     <div>
-      <h2>Selected Month: {targetMonth}</h2>
+      <h2>
+        Selected Month:{' '}
+        {targetMonth === null ? 'Non Selected Month' : targetMonth}{' '}
+      </h2>
+
       <Grid container>
         <Grid item xs={12}>
           <MonthSelector
