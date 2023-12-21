@@ -1,38 +1,30 @@
 import './App.css'
 import ApiFetch from './components/ApiFetch'
-import Worker from './components/Worker'
-import { Button } from '@mui/material'
 import { useState, useEffect } from 'react'
-import ToggleButton from '@mui/material/ToggleButton'
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import React from 'react'
-import Title from './components/Title'
-import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong'
 import { Card, CardHeader } from '@material-ui/core/'
 import { Grid } from '@material-ui/core'
-
 import AttendanceRecord from './components/AttendanceRecord'
+import Worker from './components/Worker'
+
+import MonthSelector from './pages/MonthSelector'
 
 const App = () => {
   const [targetWorker, setTargetWorker] = useState()
-  const [yearmonth, setYearmonth] = useState([])
-  const [targetmonth, setTargetmonth] = useState(null)
+  const [yearMonth, setYearMonth] = useState([])
+  const [targetMonth, setTargetMonth] = useState('None Selected')
   const [fees, setFees] = useState()
   const [reports, setReports] = useState()
   const [efforts, setEfforts] = useState()
 
   const [alignment, setAlignment] = useState('2023-02')
 
-  const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment)
-  }
-
   const HandleTargetWorker = (oneworker) => {
     setTargetWorker(oneworker)
   }
 
-  const HandleTargetMonth = (e) => {
-    setTargetmonth(e.y)
+  const handleTargetMonth = (elem) => {
+    setTargetMonth(elem)
   }
 
   useEffect(() => {
@@ -45,13 +37,8 @@ const App = () => {
       // console.log(testday.toISOString().substring(0,10));
       m.push(devd.toISOString().substring(0, 7))
     }
-    setYearmonth(m)
+    setYearMonth(m)
   }, [])
-
-  function testfunction() {
-    console.log(fees)
-    console.log(reports)
-  }
 
   const HandleFeeProps = (newfees) => {
     setFees(newfees)
@@ -67,34 +54,13 @@ const App = () => {
 
   return (
     <div>
+      <h2>Selected Month: {targetMonth}</h2>
       <Grid container>
         <Grid item xs={12}>
-          <Card variant="outlined">
-            <Title>
-              <CenterFocusStrongIcon fontSize="large" />
-              Selected : {targetmonth}{' '}
-            </Title>
-            <Button onClick={testfunction}>ぼたんやで</Button>
-
-            {!(typeof yearmonth === 'undefined') ? (
-              <ToggleButtonGroup
-                color="primary"
-                value={alignment}
-                exclusive
-                onChange={handleChange}
-                aria-label="Platform"
-              >
-                {yearmonth.map((y) => (
-                  <ToggleButton
-                    value={y}
-                    onClick={() => HandleTargetMonth({ y })}
-                  >
-                    {y}
-                  </ToggleButton>
-                ))}
-              </ToggleButtonGroup>
-            ) : null}
-          </Card>
+          <MonthSelector
+            handleTargetMonth={handleTargetMonth}
+            yearMonth={yearMonth}
+          />
         </Grid>
 
         <Grid container>
@@ -124,7 +90,7 @@ const App = () => {
                 reports={reports}
                 efforts={efforts}
                 targetWorker={targetWorker}
-                targetmonth={targetmonth}
+                targetMonth={targetMonth}
               />
             ) : null}
           </Grid>

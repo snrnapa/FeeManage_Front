@@ -27,7 +27,6 @@ const ApiFetch = (props) => {
     // fetch("http://localhost:8080/fee?id=1", { method: "GET" })
 
     // Feeを取得するJsonをバックエンドのAPIに送信して、値を取得する。
-
     fetch(FeeGetUrl, { method: 'GET' })
       .then((res) => res.json())
       .then((feedata) => {
@@ -47,6 +46,8 @@ const ApiFetch = (props) => {
       .then((effortdate) => {
         props.HandleEffortProps(effortdate)
       })
+
+    console.log('APIfetch完了')
   }, [props.targetWorker, refflg])
 }
 

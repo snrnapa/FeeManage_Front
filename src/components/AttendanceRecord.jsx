@@ -17,39 +17,43 @@ const AttendanceRecord = (props) => {
   const effort = props.efforts
   const targetWorker = props.targetWorker
   const [yearmonth, setYearmonth] = useState([])
-  const targetmonth = props.targetmonth
+  const targetMonth = props.targetMonth
 
   useEffect(() => {
     // 現在の月の、日付をすべて出力します。
 
-    // if(!(typeof fee === 'undefined') && !(typeof report === 'undefined') && !(typeof effort === 'undefined')){
-    if (!(typeof fee === 'undefined') && !(typeof report === 'undefined')) {
+    if (
+      !(typeof fee === 'undefined') &&
+      !(typeof report === 'undefined') &&
+      !(typeof effort === 'undefined')
+    ) {
+      // if (!(typeof fee === 'undefined') && !(typeof report === 'undefined')) {
       // console.log(fee.length)
       // console.log(report.length)
-      console.log(props.efforts)
 
       const d = new Date()
 
-      if (!(typeof targetmonth === 'undefined') && !(targetmonth === null)) {
-        d.setFullYear(targetmonth.substring(0, 4))
-        d.setMonth(targetmonth.substring(5, 7) - 1)
+      if (!(typeof targetMonth === 'undefined') && !(targetMonth === null)) {
+        d.setFullYear(targetMonth.substring(0, 4))
+        d.setMonth(targetMonth.substring(5, 7) - 1)
       }
 
       d.setDate(1)
-      let end = new Date(targetmonth)
+      let end = new Date(targetMonth)
       let endmonth = end.getMonth() + 1
       const dates = new Object()
 
       while (d.getMonth() != endmonth) {
         days.push(new Date(d).toISOString().substring(0, 10))
+        console.log(days)
         d.setDate(d.getDate() + 1)
+        console.log(d)
       }
-
       setTargetdays(days)
     } else {
       // 処理を何も行わない
     }
-  }, [fee, targetmonth, report, effort])
+  }, [fee, targetMonth, report, effort])
 
   const reporttest = () => {
     console.log(props)
