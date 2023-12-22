@@ -54,13 +54,9 @@ const App = () => {
   return (
     <div>
       <Header />
-      <h2>
-        Selected Month:{' '}
-        {targetMonth === null ? 'Non Selected Month' : targetMonth}{' '}
-      </h2>
 
-      <Grid container>
-        <Grid item xs={5}>
+      <Grid container xs={12}>
+        <Grid item xs={12}>
           <MonthSelector
             handleTargetMonth={handleTargetMonth}
             yearMonth={yearMonth}
@@ -70,6 +66,7 @@ const App = () => {
         <Grid container>
           <Grid item xs={12}>
             <Card variant="outlined">
+              <CardHeader></CardHeader>
               <CardHeader></CardHeader>
               <Worker HandleTargetWorker={HandleTargetWorker} />
             </Card>

@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react'
-import classNames from 'classnames'
-import { Button, ButtonGroup } from '@mui/material'
+import {
+  Avatar,
+  Button,
+  ButtonGroup,
+  Card,
+  CardContent,
+  CardHeader,
+} from '@mui/material'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import { useState } from 'react'
-import Title from './Title'
 
 export const Filter = (props) => {
   // propsを定義
-  const { value, onChange } = props
+  const { onChange } = props
   const [depts, setDepts] = useState([])
   // フィルターの切り替え
   const handleClick = (key) => {
@@ -27,20 +32,27 @@ export const Filter = (props) => {
     setDepts(deptlist)
   }, [props.workers])
 
-  const distincttest = () => {
-    console.log(depts)
-    console.log(props.workers)
-  }
-
   return (
     <>
-      <ButtonGroup>
-        {depts.map((dept) => (
-          <Button onClick={() => handleClick(dept)}> {dept} </Button>
-        ))}
-      </ButtonGroup>
+      <Card variant="outlined">
+        <CardHeader
+          subheader="所属でフィルターをかけます"
+          avatar={
+            <Avatar>
+              <FilterAltIcon></FilterAltIcon>
+            </Avatar>
+          }
+        ></CardHeader>
+        <CardContent>
+          <ButtonGroup>
+            {depts.map((dept) => (
+              <Button onClick={() => handleClick(dept)}> {dept} </Button>
+            ))}
+          </ButtonGroup>
 
-      <Button onClick={() => handleClick('ALL')}> Clear </Button>
+          <Button onClick={() => handleClick('ALL')}> Clear </Button>
+        </CardContent>
+      </Card>
     </>
   )
 }

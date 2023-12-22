@@ -1,10 +1,8 @@
 import React from 'react'
 import { useRef } from 'react'
-import { ButtonBase, Input } from '@mui/material'
-import Title from './Title'
+import { Avatar, Card, CardContent, CardHeader, Input } from '@mui/material'
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt'
 import Button from '@mui/material/Button'
-import DeleteIcon from '@mui/icons-material/Delete'
 
 const InputWorker = (props) => {
   const { refflg, setRefflg } = props
@@ -36,65 +34,78 @@ const InputWorker = (props) => {
     <>
       {/* <Button onClick={(worker) => workerinsert(props)}>送信</Button> */}
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="id">ID: </label>
-          <Input id="id" name="id" inputRef={idRef} placeholder="9999" />
-        </div>
+      <Card variant="outlined">
+        <CardHeader
+          subheader="従業員を追加します"
+          avatar={
+            <Avatar>
+              <PersonAddAltIcon></PersonAddAltIcon>
+            </Avatar>
+          }
+        ></CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="id">ID: </label>
+              <Input id="id" name="id" inputRef={idRef} placeholder="9999" />
+            </div>
 
-        <div>
-          <label htmlFor="first_name">First_Name: </label>
-          <Input
-            id="first_name"
-            name="first_name"
-            inputRef={first_nameRef}
-            type="first_name"
-            placeholder="yasushi"
-          />
-        </div>
+            <div>
+              <label htmlFor="first_name">First_Name: </label>
+              <Input
+                id="first_name"
+                name="first_name"
+                inputRef={first_nameRef}
+                type="first_name"
+                placeholder="yasushi"
+              />
+            </div>
 
-        <div>
-          <label htmlFor="last_name">last_Name: </label>
-          <Input
-            id="last_name"
-            name="last_name"
-            inputRef={last_nameRef}
-            type="last_name"
-            placeholder="suzuki"
-          />
-        </div>
+            <div>
+              <label htmlFor="last_name">last_Name: </label>
+              <Input
+                id="last_name"
+                name="last_name"
+                inputRef={last_nameRef}
+                type="last_name"
+                placeholder="suzuki"
+              />
+            </div>
 
-        <div>
-          <label htmlFor="dept">dept: </label>
-          <Input
-            id="dept"
-            name="dept"
-            inputRef={deptRef}
-            type="dept"
-            placeholder="AAF"
-          />
-        </div>
+            <div>
+              <label htmlFor="dept">dept: </label>
+              <Input
+                id="dept"
+                name="dept"
+                inputRef={deptRef}
+                type="dept"
+                placeholder="AAF"
+              />
+            </div>
 
-        <div>
-          <label htmlFor="team">team: </label>
-          <Input
-            id="team"
-            name="team"
-            inputRef={teamRef}
-            type="team"
-            placeholder="PPA"
-          />
-        </div>
+            <div>
+              <label htmlFor="team">team: </label>
+              <Input
+                id="team"
+                name="team"
+                inputRef={teamRef}
+                type="team"
+                placeholder="PPA"
+              />
+            </div>
 
-        <br />
-        <Button
-          type="submit"
-          variant="outlined"
-          startIcon={<PersonAddAltIcon />}
-        >
-          ADD
-        </Button>
-      </form>
+            <br />
+            <Button
+              type="submit"
+              variant="outlined"
+              startIcon={<PersonAddAltIcon />}
+            >
+              ADD
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+
       <br />
     </>
   )

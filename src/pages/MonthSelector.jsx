@@ -27,30 +27,31 @@ const MonthSelector = (props) => {
       <AppBar position="fixed">
         <Toolbar>
           {/* <Button onClick={testConsole}>テストボタン</Button> */}
-          <CenterFocusStrongIcon fontSize="large" />
-          <h3>Selected : {props.targetMonth} </h3>
-          {!(typeof props.yearMonth === 'undefined') ? (
-            <ToggleButtonGroup
-              color="secondary"
-              exclusive
-              aria-label="Platform"
-              value={selectMonth}
-              onChange={(event, newSelectMonth) =>
-                // setSelectMonth(newSelectMonth)
-                // console.log(newSelectMonth)
-                setSelectMonth(newSelectMonth)
-              }
-            >
-              {props.yearMonth.map((y) => (
-                <ToggleButton
-                  value={y}
-                  onClick={() => handlePropsTargetMonth({ y })}
-                >
-                  {y}
-                </ToggleButton>
-              ))}
-            </ToggleButtonGroup>
-          ) : null}
+          <h2>
+            <CenterFocusStrongIcon fontSize="large" color="primary" />
+          </h2>
+          <div>
+            {!(typeof props.yearMonth === 'undefined') ? (
+              <ToggleButtonGroup
+                color="secondary"
+                exclusive
+                aria-label="Platform"
+                value={selectMonth}
+                onChange={(event, newSelectMonth) =>
+                  setSelectMonth(newSelectMonth)
+                }
+              >
+                {props.yearMonth.map((y) => (
+                  <ToggleButton
+                    value={y}
+                    onClick={() => handlePropsTargetMonth({ y })}
+                  >
+                    {y}
+                  </ToggleButton>
+                ))}
+              </ToggleButtonGroup>
+            ) : null}
+          </div>
         </Toolbar>
       </AppBar>
     </div>
