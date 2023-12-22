@@ -31,7 +31,7 @@ const MonthSelector = (props) => {
           <h3>Selected : {props.targetMonth} </h3>
           {!(typeof props.yearMonth === 'undefined') ? (
             <ToggleButtonGroup
-              color="standard"
+              color="secondary"
               exclusive
               aria-label="Platform"
               value={selectMonth}
@@ -43,7 +43,6 @@ const MonthSelector = (props) => {
             >
               {props.yearMonth.map((y) => (
                 <ToggleButton
-                  color="success"
                   value={y}
                   onClick={() => handlePropsTargetMonth({ y })}
                 >

@@ -18,8 +18,6 @@ const App = () => {
   const [reports, setReports] = useState()
   const [efforts, setEfforts] = useState()
 
-  const [alignment, setAlignment] = useState('2023-02')
-
   const HandleTargetWorker = (oneworker) => {
     setTargetWorker(oneworker)
   }

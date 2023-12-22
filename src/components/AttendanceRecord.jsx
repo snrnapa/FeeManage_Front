@@ -33,12 +33,14 @@ const AttendanceRecord = (props) => {
       d.setMonth(targetMonth.substring(5, 7) - 1)
       d.setDate(1)
 
-      //現在のtargetMonthより、その月の最終日を取得
+      //現在のtargetMonthより、翌月endを取得する
       let end = new Date(targetMonth)
-      let endmonth = end.getMonth() + 1
+      end.setMonth(end.getMonth() + 1)
 
-      //現在のtargetMonthの月の日付を作成し、targetDaysに追加していく
-      while (d.getMonth() != endmonth) {
+      //現在の月(d)を１日から取得し、targetDaysの追加していく。
+      //１日取得するごとに、dは１ずつ加算。
+      // dの月とendの月が一致するまで繰り返す
+      while (d.getMonth() != end.getMonth()) {
         days.push(new Date(d).toISOString().substring(0, 10))
         d.setDate(d.getDate() + 1)
       }
