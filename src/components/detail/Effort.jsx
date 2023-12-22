@@ -1,5 +1,3 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
-
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 
 import {
@@ -9,7 +7,6 @@ import {
   CardContent,
   Typography,
 } from '@material-ui/core'
-import { Button } from '@mui/material'
 
 const Effort = (props) => {
   const targeteffort = props.effort

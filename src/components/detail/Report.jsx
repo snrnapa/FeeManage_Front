@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 
 import WorkIcon from '@mui/icons-material/Work'
 
@@ -9,10 +9,8 @@ import {
   CardContent,
   Typography,
   Input,
-  ButtonBase,
 } from '@material-ui/core'
-import { Button, InputBase } from '@mui/material'
-import { Label } from '@mui/icons-material'
+import { Button } from '@mui/material'
 
 const Report = (props) => {
   const targetreport = props.report

@@ -2,14 +2,13 @@ import './App.css'
 import ApiFetch from './components/ApiFetch'
 import { useState, useEffect } from 'react'
 import React from 'react'
-import { Card, CardHeader } from '@material-ui/core/'
+import { Card } from '@material-ui/core/'
 import { Grid } from '@material-ui/core'
-import AttendanceRecord from './components/AttendanceRecord'
+import DetailPage from './pages/DetailPage'
 import WorkerPage from './pages/WorkerPage'
 
 import MonthSelector from './pages/MonthSelector'
-import Header from './components/Header'
-import { Box, CssBaseline, Typography, makeStyles } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
 const App = () => {
   const [targetWorker, setTargetWorker] = useState()
@@ -80,7 +79,7 @@ const App = () => {
         <Grid container>
           <Grid item xs={12}>
             {targetWorker > 0 ? (
-              <AttendanceRecord
+              <DetailPage
                 fees={fees}
                 reports={reports}
                 efforts={efforts}

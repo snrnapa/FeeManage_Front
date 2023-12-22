@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Fee from './Fee'
+import Fee from '../components/detail/Fee'
 import { Divider, Grid, Paper } from '@material-ui/core'
-import Report from './Report'
+import Report from '../components/detail/Report'
 import { Card, CardHeader } from '@material-ui/core'
-import Effort from './Effort'
+import Effort from '../components/detail/Effort'
 
-const AttendanceRecord = (props) => {
+const DetailPage = (props) => {
   const [targetdays, setTargetdays] = useState([])
   const days = []
   const fee = props.fees
@@ -91,4 +91,4 @@ const AttendanceRecord = (props) => {
   )
 }
 
-export default AttendanceRecord
+export default DetailPage
