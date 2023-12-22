@@ -9,7 +9,7 @@ import WorkerPage from './pages/WorkerPage'
 
 import MonthSelector from './pages/MonthSelector'
 import Header from './components/Header'
-import { Box, CssBaseline, Typography } from '@mui/material'
+import { Box, CssBaseline, Typography, makeStyles } from '@mui/material'
 
 const App = () => {
   const [targetWorker, setTargetWorker] = useState()

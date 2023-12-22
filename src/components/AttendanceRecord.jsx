@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Table, ButtonGroup } from '@mui/material'
-
 import Fee from './Fee'
-import { QrCodeScannerOutlined } from '@mui/icons-material'
-import { Grid } from '@material-ui/core'
+import { Divider, Grid, Paper } from '@material-ui/core'
 import Report from './Report'
-import { Card, CardHeader, Avatar } from '@material-ui/core'
-import TrainIcon from '@mui/icons-material/Train'
+import { Card, CardHeader } from '@material-ui/core'
 import Effort from './Effort'
 
 const AttendanceRecord = (props) => {
@@ -52,63 +48,45 @@ const AttendanceRecord = (props) => {
 
   return (
     <>
-      {(() => {
-        // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
-        if (
-          !(typeof fee === 'undefined') &&
-          !(typeof targetdays === 'undefined') &&
-          !(typeof report === 'undefined') &&
-          !(typeof effort === 'undefined')
-        ) {
-          return (
-            <div>
-              {targetdays.map((d) => (
-                <div>
-                  <Card variant="outlined">
-                    <CardHeader
-                      title={d}
-                      subheader="入力OK or 入力NG"
-                    ></CardHeader>
-
-                    <Grid
-                      container
-                      direction="row"
-                      alignContent="center"
-                      justifyContent="center"
-                    >
-                      <Grid item xs={2}>
-                        <Fee fee={fee} day={d} targetWorker={targetWorker} />
-                      </Grid>
-                      {/* 幅調整用に追加した */}
-                      <Grid item xs={1}></Grid>
-
-                      <Grid item xs={3}>
-                        <Report
-                          report={report}
-                          day={d}
-                          targetWorker={targetWorker}
-                        />
-                      </Grid>
-                      {/* 幅調整用に追加した */}
-                      <Grid item xs={1}></Grid>
-
-                      <Grid item xs={5}>
-                        <Effort
-                          effort={effort}
-                          day={d}
-                          targetWorker={targetWorker}
-                        />
-                      </Grid>
+      {!(typeof fee === 'undefined') &&
+      !(typeof targetdays === 'undefined') &&
+      !(typeof report === 'undefined') &&
+      !(typeof effort === 'undefined') ? (
+        <Card>
+          <h3>WokerId: {targetWorker}</h3>
+          {targetdays.map((d) => (
+            // eslint-disable-next-line react/jsx-key
+            <Card variant="outlined">
+              <CardHeader title={d}></CardHeader>
+              <Grid container direction="row">
+                <Grid item xs={4}>
+                  <Grid container direction="column">
+                    <Grid item xs={12}>
+                      <Fee fee={fee} day={d} targetWorker={targetWorker} />
                     </Grid>
-                  </Card>
-                </div>
-              ))}
-            </div>
-          )
-        } else {
-          // 処理を何も行わない
-        }
-      })()}
+                    <Grid item xs={12}></Grid>
+                    <Grid item xs={12}>
+                      <Report
+                        report={report}
+                        day={d}
+                        targetWorker={targetWorker}
+                      />
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item xs={1}></Grid>
+
+                <Grid item xs={7}>
+                  <Effort effort={effort} day={d} targetWorker={targetWorker} />
+                </Grid>
+              </Grid>
+              <Divider />
+            </Card>
+          ))}
+        </Card>
+      ) : (
+        'ユーザーと日付を選択してください'
+      )}
     </>
   )
 }

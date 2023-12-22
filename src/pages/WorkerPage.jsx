@@ -1,10 +1,10 @@
 import * as React from 'react'
 
 import { useState, useEffect } from 'react'
-import Filter from '../components/Filter'
-import InputWorker from '../components/InputWorker'
+import Filter from '../components/worker/Filter'
+import InputWorker from '../components/worker/InputWorker'
 import { Box, Grid, Typography, colors } from '@material-ui/core'
-import WorkerTable from '../components/WorkerTable'
+import WorkerTable from '../components/worker/WorkerTable'
 
 const WorkerPage = (props) => {
   const columns = [

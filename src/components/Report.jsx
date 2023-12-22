@@ -80,6 +80,7 @@ const Report = (props) => {
                   }
                 ></CardHeader>
                 {newreport.map((result) => (
+                  // eslint-disable-next-line react/jsx-key
                   <CardContent>
                     {/* <Typography variant="h5" color="primary">
                         {result.location}

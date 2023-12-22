@@ -17,11 +17,6 @@ const Fee = (props) => {
 
   const targetWorker = props.targetWorker
 
-  const [alignment, setAlignment] = React.useState('web')
-
-  const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment)
-  }
   return (
     <>
       {(() => {
@@ -44,7 +39,7 @@ const Fee = (props) => {
               <div>
                 <Card variant="outlined">
                   <CardHeader
-                    title="Fee"
+                    title="交通費"
                     avatar={
                       <Avatar>
                         <TrainIcon></TrainIcon>
@@ -55,8 +50,8 @@ const Fee = (props) => {
                     {newfee.map((result) => (
                       <div>
                         <Typography variant="h6" color="textSecondary">
-                          {'料金:' + result.total_fee + '円   '}
                           {result.round_trip == 'yes' ? '往復' : '片道'}
+                          {result.total_fee + '円   '}/
                         </Typography>
                       </div>
                     ))}
