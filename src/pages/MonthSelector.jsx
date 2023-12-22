@@ -1,5 +1,4 @@
-import { Title } from '@mui/icons-material'
-import { Button, Card, ToggleButton, ToggleButtonGroup } from '@mui/material'
+import { ToggleButton, ToggleButtonGroup } from '@mui/material'
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong'
 import Toolbar from '@mui/material/Toolbar'
 import AppBar from '@mui/material/AppBar'
@@ -42,6 +41,7 @@ const MonthSelector = (props) => {
                 }
               >
                 {props.yearMonth.map((y) => (
+                  // eslint-disable-next-line react/jsx-key
                   <ToggleButton
                     value={y}
                     onClick={() => handlePropsTargetMonth({ y })}

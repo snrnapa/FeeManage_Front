@@ -46,6 +46,7 @@ export const Filter = (props) => {
         <CardContent>
           <ButtonGroup>
             {depts.map((dept) => (
+              // eslint-disable-next-line react/jsx-key
               <Button onClick={() => handleClick(dept)}> {dept} </Button>
             ))}
           </ButtonGroup>

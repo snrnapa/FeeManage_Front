@@ -1,15 +1,12 @@
 import * as React from 'react'
 
-import { useState, useEffect, useRef } from 'react'
-import Filter from './Filter'
-import { Button, ButtonBase, ButtonGroup, Input } from '@mui/material'
-import InputWorker from './InputWorker'
-import { DataGrid } from '@mui/x-data-grid'
-import { Avatar, Card, CardContent, CardHeader, Grid } from '@material-ui/core'
-import PeopleIcon from '@mui/icons-material/People'
-import WorkerTable from './WorkerTable'
+import { useState, useEffect } from 'react'
+import Filter from '../components/Filter'
+import InputWorker from '../components/InputWorker'
+import { Grid } from '@material-ui/core'
+import WorkerTable from '../components/WorkerTable'
 
-const Worker = (props) => {
+const WorkerPage = (props) => {
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
     { field: 'first_name', headerName: 'First name', width: 100 },
@@ -27,12 +24,10 @@ const Worker = (props) => {
   ]
 
   // ランダムなキーを取得
-  const getKey = () => Math.random().toString(32).substring(2)
 
   const [workers, setWorkers] = useState([])
   // const [targetWorker , setTargetWorker] = props;
   const [filter, setFilter] = useState('ALL')
-  const [allfilters, setAllfilters] = useState()
   const [refflg, setRefflg] = useState(0)
 
   // フィルターの切り替え
@@ -86,4 +81,4 @@ const Worker = (props) => {
   )
 }
 
-export default Worker
+export default WorkerPage

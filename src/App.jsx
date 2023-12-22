@@ -5,7 +5,7 @@ import React from 'react'
 import { Card, CardHeader } from '@material-ui/core/'
 import { Grid } from '@material-ui/core'
 import AttendanceRecord from './components/AttendanceRecord'
-import Worker from './components/Worker'
+import WorkerPage from './pages/WorkerPage'
 
 import MonthSelector from './pages/MonthSelector'
 import Header from './components/Header'
@@ -68,7 +68,7 @@ const App = () => {
             <Card variant="outlined">
               <CardHeader></CardHeader>
               <CardHeader></CardHeader>
-              <Worker HandleTargetWorker={HandleTargetWorker} />
+              <WorkerPage HandleTargetWorker={HandleTargetWorker} />
             </Card>
             <hr />
             {/* workerの情報をダブルクリックすると、targetWorkerがセットされ、こちらのAPIが実行される（Fee情報をバックから取る処理） */}
