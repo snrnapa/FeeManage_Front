@@ -7,6 +7,7 @@ import InputWorker from './InputWorker'
 import { DataGrid } from '@mui/x-data-grid'
 import { Avatar, Card, CardContent, CardHeader, Grid } from '@material-ui/core'
 import PeopleIcon from '@mui/icons-material/People'
+import WorkerTable from './WorkerTable'
 
 const Worker = (props) => {
   const columns = [
@@ -46,11 +47,6 @@ const Worker = (props) => {
     if (filter === 'ALL') return true
   })
 
-  const ChangeTargetWorker = (e) => {
-    console.log(e.id)
-    props.HandleTargetWorker(e.id)
-  }
-
   useEffect(() => {
     fetch('http://localhost:8080/', { method: 'GET' })
       .then((res) => res.json())
@@ -79,29 +75,11 @@ const Worker = (props) => {
         <Grid item xs={1}></Grid>
 
         <Grid item xs={7}>
-          <Card variant="outlined">
-            <CardHeader
-              subheader="ダブルクリックすると、従業員の詳細を表示します"
-              avatar={
-                <Avatar>
-                  <PeopleIcon></PeopleIcon>
-                </Avatar>
-              }
-            ></CardHeader>
-            <CardContent>
-              <DataGrid
-                rows={DisplayWorkers}
-                columns={columns}
-                initialState={{
-                  pagination: {
-                    paginationModel: { page: 0, pageSize: 7 },
-                  },
-                }}
-                pageSizeOptions={[5, 10]}
-                onCellDoubleClick={(event) => ChangeTargetWorker(event)}
-              />
-            </CardContent>
-          </Card>
+          <WorkerTable
+            DisplayWorkers={DisplayWorkers}
+            columns={columns}
+            HandleTargetWorker={props.HandleTargetWorker}
+          />
         </Grid>
       </Grid>
     </div>
