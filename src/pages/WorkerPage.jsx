@@ -3,7 +3,7 @@ import * as React from 'react'
 import { useState, useEffect } from 'react'
 import Filter from '../components/Filter'
 import InputWorker from '../components/InputWorker'
-import { Grid } from '@material-ui/core'
+import { Box, Grid, Typography, colors } from '@material-ui/core'
 import WorkerTable from '../components/WorkerTable'
 
 const WorkerPage = (props) => {
@@ -52,31 +52,34 @@ const WorkerPage = (props) => {
 
   return (
     <div>
-      <Grid container xs={12}>
-        <Grid item xs={12}>
-          <Filter
-            onChange={handleFilterChange}
-            value={filter}
-            workers={workers}
-          />
-        </Grid>
-      </Grid>
-
-      <Grid container>
-        <Grid item xs={4}>
-          <InputWorker refflg={refflg} setRefflg={setRefflg} />
+      <Box padding="5px" margin="5px">
+        <Typography variant="h5" color="primary">
+          Worker Pages
+        </Typography>
+        <Grid container>
+          <Grid item xs={6}>
+            <Filter
+              onChange={handleFilterChange}
+              value={filter}
+              workers={workers}
+            />
+          </Grid>
+          <Grid item xs={1}></Grid>
+          <Grid item xs={5}>
+            <InputWorker refflg={refflg} setRefflg={setRefflg} />
+          </Grid>
         </Grid>
 
         <Grid item xs={1}></Grid>
 
-        <Grid item xs={7}>
+        <Grid item xs={12}>
           <WorkerTable
             DisplayWorkers={DisplayWorkers}
             columns={columns}
             HandleTargetWorker={props.HandleTargetWorker}
           />
         </Grid>
-      </Grid>
+      </Box>
     </div>
   )
 }

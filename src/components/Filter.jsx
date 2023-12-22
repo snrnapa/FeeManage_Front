@@ -34,9 +34,9 @@ export const Filter = (props) => {
 
   return (
     <>
-      <Card variant="outlined">
+      <Card sx={{ height: 350 }} variant="outlined">
         <CardHeader
-          subheader="所属でフィルターをかけます"
+          title="所属でフィルターをかけます"
           avatar={
             <Avatar>
               <FilterAltIcon></FilterAltIcon>

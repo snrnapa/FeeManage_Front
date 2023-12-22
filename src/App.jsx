@@ -9,6 +9,7 @@ import WorkerPage from './pages/WorkerPage'
 
 import MonthSelector from './pages/MonthSelector'
 import Header from './components/Header'
+import { Box, CssBaseline, Typography } from '@mui/material'
 
 const App = () => {
   const [targetWorker, setTargetWorker] = useState()
@@ -53,21 +54,14 @@ const App = () => {
 
   return (
     <div>
-      <Header />
-
-      <Grid container xs={12}>
-        <Grid item xs={12}>
-          <MonthSelector
-            handleTargetMonth={handleTargetMonth}
-            yearMonth={yearMonth}
-          />
-        </Grid>
-
+      <Box padding="20px" marginTop="100px">
+        <MonthSelector
+          handleTargetMonth={handleTargetMonth}
+          yearMonth={yearMonth}
+        />
         <Grid container>
           <Grid item xs={12}>
             <Card variant="outlined">
-              <CardHeader></CardHeader>
-              <CardHeader></CardHeader>
               <WorkerPage HandleTargetWorker={HandleTargetWorker} />
             </Card>
             <hr />
@@ -93,10 +87,14 @@ const App = () => {
                 targetWorker={targetWorker}
                 targetMonth={targetMonth}
               />
-            ) : null}
+            ) : (
+              <Typography variant="h3" color="info.main">
+                ユーザーと日付を選択してください
+              </Typography>
+            )}
           </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </div>
   )
 }

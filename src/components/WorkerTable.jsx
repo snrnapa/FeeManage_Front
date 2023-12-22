@@ -11,7 +11,7 @@ const WorkerTable = (props) => {
     <div>
       <Card variant="outlined">
         <CardHeader
-          subheader="ダブルクリックすると、従業員の詳細を表示します"
+          title="ダブルクリックすると、従業員の詳細を表示します"
           avatar={
             <Avatar>
               <PeopleIcon></PeopleIcon>

@@ -50,14 +50,8 @@ const AttendanceRecord = (props) => {
     }
   }, [fee, targetMonth, report, effort])
 
-  const reporttest = () => {
-    console.log(props)
-  }
-
   return (
     <>
-      <Button onClick={reporttest}>レポートテストするでattendanceで</Button>
-
       {(() => {
         // fee,targetdaysの値が格納されてない状態で処理が走るとエラーとなるため、変数が設定されてない状態では処理をしないように記述
         if (

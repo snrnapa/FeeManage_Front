@@ -34,12 +34,12 @@ const InputWorker = (props) => {
     <>
       {/* <Button onClick={(worker) => workerinsert(props)}>送信</Button> */}
 
-      <Card variant="outlined">
+      <Card sx={{ height: 350 }} variant="outlined">
         <CardHeader
-          subheader="従業員を追加します"
+          title="従業員を追加します"
           avatar={
             <Avatar>
-              <PersonAddAltIcon></PersonAddAltIcon>
+              <PersonAddAltIcon color="primary"></PersonAddAltIcon>
             </Avatar>
           }
         ></CardHeader>
