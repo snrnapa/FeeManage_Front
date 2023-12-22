@@ -39,18 +39,22 @@ const Report = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    const jsonBody = {
+      id: idRef.current.value,
+      atdate: atdateRef.current.value,
+      location: locationRef.current.value,
+      workstart: workstartRef.current.value,
+      workend: workendRef.current.value,
+      reststart: reststartRef.current.value,
+      restend: restendRef.current.value,
+    }
+
+    console.log(jsonBody)
+
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: idRef.current.value,
-        atdate: atdateRef.current.value,
-        location: locationRef.current.value,
-        workstart: workstartRef.current.value,
-        workend: workendRef.current.value,
-        reststart: reststartRef.current.value,
-        restend: restendRef.current.value,
-      }),
+      body: JSON.stringify(jsonBody),
     }
     fetch('http://localhost:8080/report', requestOptions)
   }
