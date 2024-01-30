@@ -9,8 +9,8 @@ import WorkerTable from '../components/worker/WorkerTable'
 const WorkerPage = (props) => {
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'first_name', headerName: 'First name', width: 100 },
-    { field: 'last_name', headerName: 'Last name', width: 100 },
+    { field: 'first_name', headerName: 'First name', width: 200 },
+    { field: 'last_name', headerName: 'Last name', width: 200 },
     {
       field: 'dept',
       headerName: 'dept',
